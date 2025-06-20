@@ -71,8 +71,9 @@ export default function Projects() {
                 </div>
 
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
-                  <a
-                    href={projects[0].demoUrl}
+                  {/* Changed from <a> to <Link> and href to /projects */}
+                  <Link
+                    href="/projects"
                     className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
                   >
                     <span className="mr-2 text-sm uppercase tracking-wider">
@@ -91,7 +92,7 @@ export default function Projects() {
                         d="M14 5l7 7m0 0l-7 7m7-7H3"
                       />
                     </svg>
-                  </a>
+                  </Link>
 
                   <a
                     href={projects[0].githubUrl}
@@ -138,12 +139,13 @@ export default function Projects() {
 
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-                  <a
-                    href={project.demoUrl}
+                  {/* Changed from <a> to <Link> and href to /projects */}
+                  <Link
+                    href="/projects"
                     className="px-4 py-2 border border-gray-400 text-gray-200 text-sm hover:bg-gray-900 transition-colors mx-2"
                   >
                     Demo
-                  </a>
+                  </Link>
                   <a
                     href={project.githubUrl}
                     className="px-4 py-2 border border-gray-600 text-gray-400 text-sm hover:bg-gray-900 transition-colors mx-2"
@@ -176,8 +178,9 @@ export default function Projects() {
                 </div>
 
                 <div className="pt-4 border-t border-gray-900">
-                  <a
-                    href={project.demoUrl}
+                  {/* Changed from <a> to <Link> and href to /projects */}
+                  <Link
+                    href="/projects"
                     className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors text-sm"
                   >
                     <span>View details</span>
@@ -194,7 +197,7 @@ export default function Projects() {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

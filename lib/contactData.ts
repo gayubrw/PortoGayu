@@ -57,10 +57,5 @@ export const contactData: ContactData = {
       href: "/CV.pdf",
       isExternal: true,
     },
-    {
-      text: "VIEW PROJECTS",
-      href: "/projects",
-      isExternal: false,
-    },
   ],
 };

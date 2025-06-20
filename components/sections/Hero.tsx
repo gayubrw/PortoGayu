@@ -59,11 +59,11 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="pt-8">
+            {/* <div className="pt-8">
               <p className="text-gray-600 font-mono text-xs">
                 SPECIALIZING IN // WEB DEVELOPMENT // UI/UX DESIGN
               </p>
-            </div>
+            </div> */}
           </div>
 
           <div className="hidden lg:block">
@@ -166,6 +166,31 @@ export default function Hero() {
         <div className="absolute bottom-0 right-0 w-full h-px bg-gray-800"></div>
         <div className="absolute bottom-0 right-0 h-full w-px bg-gray-800"></div>
       </div>
+
+      {/* Scroll to Projects button (single chevron without background/border) */}
+      <Link
+        href="#projects"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2
+                   flex items-center justify-center
+                   group transition-all duration-300 z-20"
+        aria-label="Scroll to Projects"
+      >
+        {/* Single chevron for the animation */}
+        <svg
+          className="w-8 h-8 text-white animate-scroll-single-arrow transition-transform duration-300 group-hover:translate-y-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2" // Adjusted stroke width for a slightly bolder look
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </Link>
     </div>
   );
 }

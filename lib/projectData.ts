@@ -100,7 +100,7 @@ export const projects: ProjectType[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     imageUrl: "/images/project4.png",
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/gayubrw/PortoGayu.git",
     features: ["-"],
   },
 ];
