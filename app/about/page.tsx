@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { experiences, education, personalInfo } from "@/lib/aboutData";
+import Image from "next/image"; // Import Image component
 
 export const metadata: Metadata = {
   title: "PortoGayu | About Me",
@@ -45,30 +46,17 @@ export default function AboutPage() {
 
         {/* Profile Section */}
         <div className="mb-24 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          {/* Abstract geometric element instead of profile image */}
-          <div className="portfolio-card p-2 aspect-square relative overflow-hidden">
-            <div className="w-full h-full relative grid grid-cols-2 grid-rows-2 gap-4 p-6">
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className="bg-black border border-gray-800 group hover:border-gray-700 transition-all duration-500 overflow-hidden"
-                >
-                  <div className="w-full h-full flex items-center justify-center relative">
-                    <div className="w-2/3 h-2/3 border border-gray-700 group-hover:border-gray-600 transition-all duration-500"></div>
+          {/* Replaced Abstract geometric element with actual profile image */}
+          <div className="portfolio-card p-2 aspect-square relative overflow-hidden flex items-center justify-center">
+            <Image
+              src="/images/profilepicture.jpg"
+              alt={personalInfo.name}
+              width={500}
+              height={500}
+              className="rounded-md object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            />
 
-                    {/* Animated line */}
-                    <div className="absolute inset-0 overflow-hidden">
-                      <div
-                        className="h-px w-full bg-gray-800 opacity-50"
-                        style={{ animation: "scan 3s ease-in-out infinite" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Decorative corner elements */}
+            {/* Decorative corner elements - kept for consistent styling, but can be removed if not desired over an image */}
             <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-gray-700"></div>
             <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-gray-700"></div>
             <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-gray-700"></div>
@@ -156,29 +144,6 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-
-        {/* Skills Section - Without Logo */}
-        {/* <div>
-          <h2 className="text-2xl font-bold text-white mb-12 lg:text-center">
-            <span className="relative">
-              Keahlian Teknis
-              <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-px w-12 bg-gray-700"></span>
-            </span>
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-black border border-gray-800 hover:border-gray-700 rounded-none p-4 flex items-center justify-center text-center transition-all hover-lift"
-              >
-                <span className="font-medium text-gray-400 hover:text-white transition-colors">
-                  {skill}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div> */}
 
         {/* Skills Section - With Logo */}
         <div>

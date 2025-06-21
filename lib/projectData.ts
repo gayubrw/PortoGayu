@@ -71,7 +71,7 @@ export const projects: ProjectType[] = [
     title: "GOAT NEWS",
     description: "Portal berita ringan dan cepat dengan React.js.",
     longDescription:
-      "Goat News adalah aplikasi portal berita yang dibangun menggunakan React.js. Proyek ini bertujuan menyajikan berbagai jenis berita terkini dengan tampilan yang ringan, cepat diakses, dan mudah digunakan. Aplikasi ini terhubung ke API untuk mengambil berita terbaru secara real-time, dan menyediakan fitur pencarian, pengkategorian berita (seperti politik, teknologi, hiburan, olahraga, dan lainnya), serta tampilan responsif untuk perangkat mobile. Dengan pendekatan front-end murni, Goat News cocok untuk pengguna yang ingin langsung mendapatkan informasi tanpa gangguan.",
+      "Goat News is a news portal application built using React.js. This project aims to present various types of current news with a lightweight, fast-access, and user-friendly display. The application connects to an API to retrieve the latest news in real-time and provides search features, news categorization (such as politics, technology, entertainment, sports, and more), and a responsive display for mobile devices. With a purely front-end approach, Goat News is suitable for users who want to get information directly without interruption.",
     tags: [
       "React.js",
       "JavaScript",
@@ -84,12 +84,12 @@ export const projects: ProjectType[] = [
     demoUrl: "#",
     githubUrl: "https://github.com/gayubrw/goat_news",
     features: [
-      "Pengambilan berita terbaru secara real-time dari API",
-      "Pencarian dan filter berita berdasarkan kategori",
-      "Tampilan antarmuka yang ringan dan responsif",
-      "Navigasi antar halaman menggunakan React Router",
-      "Integrasi data menggunakan Axios",
-      "Desain bersih dan mudah digunakan",
+      "Real-time retrieval of the latest news from the API",
+      "Search and filter news by category",
+      "Lightweight and responsive interface",
+      "Navigating between pages using React Router",
+      "Data integration using Axios",
+      "Clean and easy to use",
     ],
   },
   {
