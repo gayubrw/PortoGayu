@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/lib/projectData";
+import { getProjects } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "PortoGayu | Projects",
   description: "Kumpulan proyek terbaru yang telah saya kerjakan.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
   return (
-    <div className="py-24 bg-black min-h-screen">
+    <div className="py-24 theme-bg-black min-h-screen">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, #333 1px, transparent 1px),
-              linear-gradient(to bottom, #333 1px, transparent 1px)
+              linear-gradient(to right, #A11312 1px, transparent 1px),
+              linear-gradient(to bottom, #A11312 1px, transparent 1px)
             `,
             backgroundSize: "40px 40px",
           }}
@@ -29,17 +30,17 @@ export default function ProjectsPage() {
         <div className="lg:text-center mb-16">
           {/* Section heading with decorative line */}
           <div className="inline-flex items-center mb-4">
-            <div className="h-px w-8 bg-gray-700"></div>
-            <span className="mx-3 text-gray-500 text-sm tracking-widest uppercase">
+            <div className="h-px w-8 theme-bg-red"></div>
+            <span className="mx-3 theme-text-red text-sm tracking-widest uppercase font-semibold">
               Projects
             </span>
-            <div className="h-px w-8 bg-gray-700"></div>
+            <div className="h-px w-8 theme-bg-red"></div>
           </div>
 
-          <h1 className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl mb-4">
+          <h1 className="text-3xl leading-8 font-extrabold tracking-tight theme-text-red sm:text-4xl mb-4">
             My Projects
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-gray-400 lg:mx-auto">
+          <p className="mt-4 max-w-2xl text-xl theme-text-cream lg:mx-auto">
             Here are some of the projects I have worked on.
           </p>
         </div>
@@ -49,8 +50,10 @@ export default function ProjectsPage() {
             <div key={project.id} className="group">
               {/* Project number */}
               <div className="flex items-center mb-6">
-                <div className="project-number mr-4">0{index + 1}</div>
-                <div className="h-px flex-grow bg-gradient-to-r from-gray-800 to-transparent"></div>
+                <div className="theme-bg-red theme-text-cream font-bold px-4 py-2 text-sm mr-4">
+                  0{index + 1}
+                </div>
+                <div className="h-px flex-grow bg-gradient-to-r from-theme-red to-transparent"></div>
               </div>
 
               <div
@@ -60,9 +63,9 @@ export default function ProjectsPage() {
               >
                 {/* Project Image */}
                 <div className="lg:w-1/2">
-                  <div className="portfolio-card aspect-video relative overflow-hidden p-1 bg-gray-900 rounded-lg">
+                  <div className="portfolio-card aspect-video relative overflow-hidden p-1 theme-bg-black border border-theme-red/20 rounded-lg">
                     {/* Project image */}
-                    <div className="absolute inset-0 bg-black">
+                    <div className="absolute inset-0 theme-bg-black">
                       <Image
                         src={project.imageUrl}
                         alt={project.title}
@@ -78,37 +81,37 @@ export default function ProjectsPage() {
                     {/* Animated scan line */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                       <div
-                        className="h-px w-full bg-gray-800 opacity-30"
+                        className="h-px w-full bg-theme-red opacity-50"
                         style={{ animation: "scan 3s ease-in-out infinite" }}
                       ></div>
                     </div>
 
                     {/* Corner decorations */}
-                    <div className="absolute top-2 left-2 w-5 h-5 border-t border-l border-gray-700 z-10"></div>
-                    <div className="absolute top-2 right-2 w-5 h-5 border-t border-r border-gray-700 z-10"></div>
-                    <div className="absolute bottom-2 left-2 w-5 h-5 border-b border-l border-gray-700 z-10"></div>
-                    <div className="absolute bottom-2 right-2 w-5 h-5 border-b border-r border-gray-700 z-10"></div>
+                    <div className="absolute top-2 left-2 w-5 h-5 border-t border-l border-theme-red z-10"></div>
+                    <div className="absolute top-2 right-2 w-5 h-5 border-t border-r border-theme-red z-10"></div>
+                    <div className="absolute bottom-2 left-2 w-5 h-5 border-b border-l border-theme-red z-10"></div>
+                    <div className="absolute bottom-2 right-2 w-5 h-5 border-b border-r border-theme-red z-10"></div>
                   </div>
                 </div>
 
                 {/* Project Information */}
                 <div className="lg:w-1/2">
-                  <h2 className="text-2xl font-bold text-white mb-4 relative">
+                  <h2 className="text-2xl font-bold theme-text-red mb-4 relative">
                     <span className="relative z-10">{project.title}</span>
-                    <span className="absolute bottom-0 left-0 h-px w-12 bg-gray-700"></span>
+                    <span className="absolute bottom-0 left-0 h-px w-12 theme-bg-red"></span>
                   </h2>
 
-                  <p className="text-gray-400 mb-6">
+                  <p className="theme-text-cream mb-6">
                     {project.longDescription}
                   </p>
 
-                  <h3 className="text-lg font-semibold text-white mb-4 mt-8">
+                  <h3 className="text-lg font-semibold theme-text-cream mb-4 mt-8">
                     Main Features:
                   </h3>
-                  <ul className="space-y-2 mb-8 text-gray-500">
+                  <ul className="space-y-2 mb-8 theme-text-cream">
                     {project.features?.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="text-gray-700 mr-3">&#x2022;</span>
+                        <span className="theme-text-red mr-3">&#x2022;</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -116,7 +119,10 @@ export default function ProjectsPage() {
 
                   <div className="flex flex-wrap gap-2 mb-8">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="project-tag">
+                      <span
+                        key={tagIndex}
+                        className="bg-black/40 theme-text-red px-3 py-1 text-xs font-medium border border-theme-red/30 rounded"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -125,7 +131,7 @@ export default function ProjectsPage() {
                   <div className="flex space-x-4 mt-8">
                     <a
                       href={project.demoUrl}
-                      className="btn-dark group flex items-center"
+                      className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:theme-text-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold group flex items-center"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -146,7 +152,7 @@ export default function ProjectsPage() {
                     </a>
                     <a
                       href={project.githubUrl}
-                      className="bg-transparent border border-gray-800 hover:border-gray-700 px-6 py-3 text-gray-400 hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase flex items-center"
+                      className="bg-transparent border border-theme-red hover:theme-bg-red hover:theme-text-cream px-6 py-3 theme-text-red transition-colors duration-300 text-sm tracking-wider uppercase flex items-center"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -171,15 +177,15 @@ export default function ProjectsPage() {
 
         {/* Contact Section */}
         <div className="mt-16 lg:text-center">
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className="text-2xl font-bold theme-text-cream mb-6">
             <span className="relative">
               Interested in Working Together?
-              <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-px w-12 bg-gray-700"></span>
+              <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-px w-12 theme-bg-red"></span>
             </span>
           </h2>
           <Link
             href="/contact"
-            className="btn-dark group inline-flex items-center"
+            className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:theme-text-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold group inline-flex items-center"
           >
             <span>Contact Me</span>
             <svg

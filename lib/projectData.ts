@@ -95,12 +95,30 @@ export const projects: ProjectType[] = [
   {
     id: 4,
     title: "PortoGayu",
-    description: "This web.",
-    longDescription: "This web.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    description:
+      "Modern portfolio website with full-stack backend integration using Next.js and Supabase.",
+    longDescription:
+      "PortoGayu is a modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project features a complete backend integration with Supabase for contact form submissions, project management, and visitor analytics. The website showcases professional design patterns, server-side rendering, and modern web development best practices. It includes functional contact forms, admin dashboard, and a scalable architecture ready for future enhancements.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "React",
+      "PostgreSQL",
+    ],
     imageUrl: "/images/project4.png",
     demoUrl: "#",
     githubUrl: "https://github.com/gayubrw/PortoGayu.git",
-    features: ["-"],
+    features: [
+      "Modern responsive design with Tailwind CSS",
+      "Full-stack integration with Supabase backend",
+      "Functional contact form with database storage",
+      "Admin dashboard for message management",
+      "Server-side rendering with Next.js",
+      "TypeScript for type safety",
+      "Visitor analytics and tracking",
+      "Row Level Security (RLS) implementation",
+    ],
   },
 ];

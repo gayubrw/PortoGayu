@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contactData } from "@/lib/contactData";
+import { getContactData } from "@/lib/utils";
+import ContactForm from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "PortoGayu | Contact",
@@ -8,13 +9,15 @@ export const metadata: Metadata = {
     "Hubungi saya untuk diskusi project atau kolaborasi. Tersedia informasi kontak lengkap termasuk email, lokasi, dan jam kerja.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const contactData = await getContactData();
+
   // Helper function to render social icons with Hero component styling
   const renderSocialIcon = (iconName: string) => {
     const icons = {
       github: (
         <svg
-          className="w-6 h-6 text-gray-600 hover:text-gray-400 transition-colors"
+          className="w-6 h-6 theme-text-cream hover:theme-text-red transition-colors"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -23,7 +26,7 @@ export default function ContactPage() {
       ),
       linkedin: (
         <svg
-          className="w-6 h-6 text-gray-600 hover:text-gray-400 transition-colors"
+          className="w-6 h-6 theme-text-cream hover:theme-text-red transition-colors"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -32,7 +35,7 @@ export default function ContactPage() {
       ),
       twitter: (
         <svg
-          className="w-6 h-6 text-gray-600 hover:text-gray-400 transition-colors"
+          className="w-6 h-6 theme-text-cream hover:theme-text-red transition-colors"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -41,7 +44,7 @@ export default function ContactPage() {
       ),
       instagram: (
         <svg
-          className="w-6 h-6 text-gray-600 hover:text-gray-400 transition-colors"
+          className="w-6 h-6 theme-text-cream hover:theme-text-red transition-colors"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -53,15 +56,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-24 bg-black min-h-screen">
+    <div className="py-24 theme-bg-black min-h-screen">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, #333 1px, transparent 1px),
-              linear-gradient(to bottom, #333 1px, transparent 1px)
+              linear-gradient(to right, #A11312 1px, transparent 1px),
+              linear-gradient(to bottom, #A11312 1px, transparent 1px)
             `,
             backgroundSize: "40px 40px",
           }}
@@ -73,17 +76,17 @@ export default function ContactPage() {
         <div className="lg:text-center mb-16">
           {/* Section heading with decorative line */}
           <div className="inline-flex items-center mb-4">
-            <div className="h-px w-8 bg-gray-700"></div>
-            <span className="mx-3 text-gray-500 text-sm tracking-widest uppercase">
+            <div className="h-px w-8 theme-bg-red"></div>
+            <span className="mx-3 theme-text-red text-sm tracking-widest uppercase">
               Contact
             </span>
-            <div className="h-px w-8 bg-gray-700"></div>
+            <div className="h-px w-8 theme-bg-red"></div>
           </div>
 
-          <h1 className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl mb-4">
+          <h1 className="text-3xl leading-8 font-extrabold tracking-tight theme-text-red sm:text-4xl mb-4">
             {contactData.header.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-gray-400 lg:mx-auto">
+          <p className="mt-4 max-w-2xl text-xl theme-text-cream lg:mx-auto">
             {contactData.header.subtitle}
           </p>
         </div>
@@ -95,16 +98,16 @@ export default function ContactPage() {
             <div className="mb-24">
               <div className="ornate-frame p-6">
                 <div className="ornate-inner p-8 flex flex-col">
-                  <h2 className="text-2xl text-white font-bold tracking-wider mb-10 text-center">
+                  <h2 className="text-2xl theme-text-red font-bold tracking-wider mb-10 text-center">
                     CONTACT INFO
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4">
                     {/* Email */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 flex items-center justify-center bg-black border border-gray-800">
+                      <div className="w-12 h-12 flex items-center justify-center theme-bg-black border border-theme-red">
                         <svg
-                          className="w-6 h-6 text-gray-500"
+                          className="w-6 h-6 theme-text-red"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -118,10 +121,10 @@ export default function ContactPage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm mb-1">Email:</p>
+                        <p className="theme-text-red text-sm mb-1">Email:</p>
                         <a
                           href={`mailto:${contactData.contactInfo.email}`}
-                          className="text-gray-300 hover:text-white transition-colors lowercase"
+                          className="theme-text-cream hover:theme-text-red transition-colors lowercase"
                           style={{ textTransform: "none" }}
                         >
                           {contactData.contactInfo.email}
@@ -131,9 +134,9 @@ export default function ContactPage() {
 
                     {/* Location */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 flex items-center justify-center bg-black border border-gray-800">
+                      <div className="w-12 h-12 flex items-center justify-center theme-bg-black border border-theme-red">
                         <svg
-                          className="w-6 h-6 text-gray-500"
+                          className="w-6 h-6 theme-text-red"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -153,8 +156,8 @@ export default function ContactPage() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm mb-1">Location:</p>
-                        <p className="text-gray-300">
+                        <p className="theme-text-red text-sm mb-1">Location:</p>
+                        <p className="theme-text-cream">
                           {contactData.contactInfo.location}
                         </p>
                       </div>
@@ -163,7 +166,7 @@ export default function ContactPage() {
                     {/* Social Media - Centered across 2 columns */}
                     <div className="md:col-span-2 flex flex-col items-center space-y-6">
                       <div className="flex items-center space-x-4">
-                        <p className="text-gray-400 text-xl">Connect:</p>
+                        <p className="theme-text-red text-xl">Connect:</p>
                       </div>
                       <div className="flex justify-center space-x-8">
                         {contactData.contactInfo.socialLinks.map(
@@ -193,7 +196,7 @@ export default function ContactPage() {
                             href={button.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-dark px-6 py-3"
+                            className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:theme-text-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold"
                           >
                             {button.text}
                           </a>
@@ -201,7 +204,7 @@ export default function ContactPage() {
                           <Link
                             key={index}
                             href={button.href}
-                            className="btn-dark px-6 py-3"
+                            className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:theme-text-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold"
                           >
                             {button.text}
                           </Link>
@@ -211,6 +214,11 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="mb-16">
+              <ContactForm />
             </div>
           </div>
         </div>

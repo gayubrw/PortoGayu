@@ -1,26 +1,28 @@
 import Link from "next/link";
 import Image from "next/image"; // Import Image component
-import { projects } from "@/lib/projectData";
+import { getProjects } from "@/lib/utils";
 
-export default function Projects() {
+export default async function Projects() {
+  const projects = await getProjects();
+
   return (
-    <section id="projects" className="py-24 bg-black">
+    <section id="projects" className="py-24 theme-bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
           <div className="inline-flex items-center mb-4">
-            <div className="h-px w-8 bg-gray-700"></div>
-            <span className="mx-3 text-gray-500 text-sm tracking-widest uppercase">
+            <div className="h-px w-8 theme-bg-red"></div>
+            <span className="mx-3 theme-text-cream text-sm tracking-widest uppercase font-semibold">
               Portfolio
             </span>
-            <div className="h-px w-8 bg-gray-700"></div>
+            <div className="h-px w-8 theme-bg-red"></div>
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl font-bold theme-text-red mb-6">
             Selected Projects
           </h2>
 
-          <p className="max-w-2xl text-gray-400 text-base">
+          <p className="max-w-2xl theme-text-cream text-base">
             Explore my recent work showcasing my expertise in web development
             and UI/UX design. Each project represents a unique challenge and
             solution.
@@ -32,8 +34,8 @@ export default function Projects() {
           <div className="portfolio-card p-1">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Project Preview with actual image */}
-              <div className="relative h-64 md:h-auto bg-gray-900 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center bg-black">
+              <div className="relative h-64 md:h-auto theme-bg-black overflow-hidden border border-theme-red/20">
+                <div className="absolute inset-0 flex items-center justify-center theme-bg-black">
                   {/* Replace SVG with actual image */}
                   <Image
                     src={projects[0].imageUrl}
@@ -46,35 +48,38 @@ export default function Projects() {
                 </div>
 
                 {/* Project number */}
-                <div className="project-number absolute top-4 left-4 z-10">
+                <div className="project-number absolute top-4 left-4 z-10 bg-theme-red text-theme-cream font-bold px-3 py-1 text-sm">
                   01
                 </div>
               </div>
 
               {/* Project Info */}
-              <div className="p-6 md:p-8 flex flex-col">
+              <div className="p-6 md:p-8 flex flex-col theme-bg-black">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-2xl font-bold theme-text-cream mb-4">
                     {projects[0].title}
                   </h3>
-                  <p className="text-gray-400 mb-6">
+                  <p className="theme-text-cream-dark mb-6">
                     {projects[0].description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
                     {projects[0].tags.map((tag, index) => (
-                      <span key={index} className="project-tag">
+                      <span
+                        key={index}
+                        className="bg-theme-red/10 theme-text-red px-3 py-1 text-xs font-medium border border-theme-red/30 rounded"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                <div className="flex justify-between items-center mt-4 pt-4 border-t border-theme-red/30">
                   {/* Changed from <a> to <Link> and href to /projects */}
                   <Link
                     href="/projects"
-                    className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
+                    className="inline-flex items-center text-theme-red hover:text-theme-cream transition-colors"
                   >
                     <span className="mr-2 text-sm uppercase tracking-wider">
                       View Project
@@ -96,7 +101,7 @@ export default function Projects() {
 
                   <a
                     href={projects[0].githubUrl}
-                    className="text-gray-600 hover:text-gray-400 transition-colors"
+                    className="theme-text-cream hover:text-theme-red transition-colors"
                   >
                     <svg
                       className="w-5 h-5"
@@ -122,10 +127,13 @@ export default function Projects() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.slice(1).map((project, index) => (
-            <div key={project.id} className="portfolio-card hover-lift group">
+            <div
+              key={project.id}
+              className="portfolio-card hover-lift group theme-bg-black border border-theme-red/20 hover:border-theme-red/50 transition-all"
+            >
               {/* Project Image with actual image */}
-              <div className="relative h-48 bg-gray-900 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center bg-black">
+              <div className="relative h-48 theme-bg-black overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center theme-bg-black">
                   {/* Replace SVG with actual image */}
                   <Image
                     src={project.imageUrl}
@@ -138,50 +146,53 @@ export default function Projects() {
                 </div>
 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                <div className="absolute inset-0 theme-bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                   {/* Changed from <a> to <Link> and href to /projects */}
                   <Link
                     href="/projects"
-                    className="px-4 py-2 border border-gray-400 text-gray-200 text-sm hover:bg-gray-900 transition-colors mx-2"
+                    className="px-4 py-2 border border-theme-red text-theme-red text-sm hover:bg-theme-red hover:text-theme-cream transition-colors mx-2"
                   >
                     Demo
                   </Link>
                   <a
                     href={project.githubUrl}
-                    className="px-4 py-2 border border-gray-600 text-gray-400 text-sm hover:bg-gray-900 transition-colors mx-2"
+                    className="px-4 py-2 border border-theme-cream theme-text-cream text-sm hover:theme-bg-cream hover:theme-text-black transition-colors mx-2"
                   >
                     Code
                   </a>
                 </div>
 
                 {/* Project number */}
-                <div className="project-number absolute top-4 left-4 z-10">
+                <div className="project-number absolute top-4 left-4 z-10 bg-theme-red text-theme-cream font-bold px-3 py-1 text-sm">
                   0{index + 2}
                 </div>
               </div>
 
               {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gray-200 transition-colors">
+                <h3 className="text-xl font-bold theme-text-cream mb-3 group-hover:text-theme-red transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-500 text-sm mb-5">
+                <p className="theme-text-cream-dark text-sm mb-5">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="project-tag">
+                    <span
+                      key={tagIndex}
+                      className="bg-theme-red/10 theme-text-red px-2 py-1 text-xs font-medium border border-theme-red/30 rounded"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-gray-900">
+                <div className="pt-4 border-t border-theme-red/30">
                   {/* Changed from <a> to <Link> and href to /projects */}
                   <Link
                     href="/projects"
-                    className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors text-sm"
+                    className="inline-flex items-center theme-text-red hover:text-theme-cream transition-colors text-sm"
                   >
                     <span>View details</span>
                     <svg
@@ -204,10 +215,10 @@ export default function Projects() {
           ))}
 
           {/* View More Card */}
-          <div className="portfolio-card hover-lift flex flex-col items-center justify-center p-8 min-h-[300px]">
-            <div className="w-16 h-16 border border-gray-800 rounded-full flex items-center justify-center mb-6">
+          <div className="portfolio-card hover-lift flex flex-col items-center justify-center p-8 min-h-[300px] theme-bg-black border border-theme-red/20 hover:border-theme-red/50 transition-all">
+            <div className="w-16 h-16 border border-theme-red rounded-full flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-gray-700"
+                className="w-8 h-8 text-theme-red"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -219,15 +230,18 @@ export default function Projects() {
               </svg>
             </div>
 
-            <h3 className="text-xl font-bold text-gray-500 mb-4">
+            <h3 className="text-xl font-bold theme-text-cream mb-4">
               More Projects
             </h3>
-            <p className="text-gray-600 text-sm text-center mb-6">
+            <p className="theme-text-cream-dark text-sm text-center mb-6">
               Explore my complete portfolio with additional projects and case
               studies.
             </p>
 
-            <Link href="/projects" className="btn-dark text-sm">
+            <Link
+              href="/projects"
+              className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:text-theme-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold"
+            >
               View All Projects
             </Link>
           </div>

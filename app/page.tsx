@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function WelcomePage() {
   const [loaded, setLoaded] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [typingComplete, setTypingComplete] = useState(false);
-  const textToType = "PortoGayu";
+  const textToType = "GayuBaruwa";
 
   useEffect(() => {
     // Set loaded state after component mount for animation
@@ -29,48 +30,42 @@ export default function WelcomePage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
-      {/* Background subtle pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #333 1px, transparent 1px),
-            linear-gradient(to bottom, #333 1px, transparent 1px)
-          `,
-          backgroundSize: "30px 30px",
-        }}
-      ></div>
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: "url('/images/bglandingpage.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
 
       {/* Content container */}
       <div
-        className={`relative z-10 text-center p-6 transition-all duration-1000 transform ${
+        className={`relative z-20 text-center p-6 transition-all duration-1000 transform ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* Crown emblem */}
-        <div className="mb-8 flex justify-center">
-          <div className="w-24 h-24 relative">
-            <div className="absolute inset-0 border border-gray-800 rounded-full"></div>
-            <div className="absolute inset-5 border border-gray-800 rounded-full"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg
-                className="w-12 h-12 text-gray-800"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 1L15 5L19 3L17 7L21 9L17 11L19 15L15 13L12 17L9 13L5 15L7 11L3 9L7 7L5 3L9 5L12 1Z" />
-              </svg>
-            </div>
+        {/* Logo */}
+        <div className="flex justify-center">
+          <div className="relative">
+            <Image
+              src="/images/icon2.jpg"
+              alt="Logo"
+              width={150}
+              height={150}
+              className="object-contain"
+            />
           </div>
         </div>
 
         {/* Main title with typing effect */}
         <h1 className="text-5xl md:text-7xl font-bold relative mb-8">
-          <span className="text-white">{typedText}</span>
+          <span className="theme-text-red">{typedText}</span>
           <span
-            className={`inline-block w-3 h-10 md:h-14 bg-gray-600 ml-1 animate-blink ${
+            className={`inline-block w-3 h-10 md:h-14 bg-theme-red ml-1 animate-blink ${
               typingComplete ? "opacity-0" : "opacity-100"
             }`}
           ></span>
@@ -85,7 +80,7 @@ export default function WelcomePage() {
           }`}
         >
           <div className="relative">
-            <h2 className="text-xl md:text-2xl text-gray-400 tracking-widest">
+            <h2 className="text-xl md:text-2xl tracking-widest theme-text-cream">
               WELCOME
             </h2>
           </div>
@@ -97,11 +92,11 @@ export default function WelcomePage() {
             typingComplete ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
-          <div className="mt-2 text-gray-600 text-sm">PORTFOLIO LOADING</div>
-          <div className="mt-2 h-1 bg-gray-900 rounded overflow-hidden">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-theme-red to-transparent"></div>
+          <div className="mt-2 text-sm theme-text-red">PORTFOLIO LOADING</div>
+          <div className="mt-2 h-1 bg-black border border-theme-red/30 rounded overflow-hidden">
             <div
-              className="h-full bg-gray-700 w-full"
+              className="h-full bg-theme-red w-full"
               style={{ animation: "loadingBar 3s ease-in-out forwards" }}
             ></div>
           </div>
@@ -117,7 +112,7 @@ export default function WelcomePage() {
         >
           <Link
             href="/home"
-            className="professional-button px-10 py-3 bg-black border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600 uppercase tracking-widest text-sm transition-all group inline-flex items-center"
+            className="professional-button px-10 py-3 bg-theme-red border border-theme-red text-theme-cream hover:bg-transparent hover:text-theme-red uppercase tracking-widest text-sm transition-all group inline-flex items-center font-bold"
           >
             <span>Enter Portfolio</span>
             <svg
@@ -138,22 +133,25 @@ export default function WelcomePage() {
       </div>
 
       {/* Corner elements */}
-      <div className="fixed top-6 left-6 w-20 h-20 opacity-20">
-        <div className="w-full h-full border-t border-l border-gray-800"></div>
+      {/* Decorative corner elements */}
+      <div className="absolute top-4 left-4 w-6 h-6">
+        <div className="w-full h-full border-t border-l border-theme-red"></div>
       </div>
-      <div className="fixed top-6 right-6 w-20 h-20 opacity-20">
-        <div className="w-full h-full border-t border-r border-gray-800"></div>
+      <div className="absolute top-4 right-4 w-6 h-6">
+        <div className="w-full h-full border-t border-r border-theme-red"></div>
       </div>
-      <div className="fixed bottom-6 left-6 w-20 h-20 opacity-20">
-        <div className="w-full h-full border-b border-l border-gray-800"></div>
+      <div className="absolute bottom-4 left-4 w-6 h-6">
+        <div className="w-full h-full border-b border-l border-theme-red"></div>
       </div>
-      <div className="fixed bottom-6 right-6 w-20 h-20 opacity-20">
-        <div className="w-full h-full border-b border-r border-gray-800"></div>
+      <div className="absolute bottom-4 right-4 w-6 h-6">
+        <div className="w-full h-full border-b border-r border-theme-red"></div>
       </div>
 
       {/* Copyright footer */}
-      <div className="fixed bottom-6 left-0 right-0 text-center text-xs text-gray-700 tracking-wider">
-        &copy; {new Date().getFullYear()} PortoGayu | Web Developer & Designer
+      <div className="fixed bottom-6 left-0 right-0 text-center text-xs theme-text-cream tracking-wider">
+        &copy; {new Date().getFullYear()}{" "}
+        <span className="theme-text-red">PortoGayu</span> | Web Developer &
+        Designer
       </div>
     </div>
   );

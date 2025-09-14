@@ -2,7 +2,9 @@ export interface ExperienceItem {
   company: string;
   position: string;
   period: string;
+  type?: string;
   description: string;
+  achievements?: string[];
 }
 
 export interface EducationItem {
@@ -12,12 +14,13 @@ export interface EducationItem {
   description: string;
 }
 
-// Experience data
+// Organizational Experience data
 export const experiences: ExperienceItem[] = [
   {
     company: "Himpunan Mahasiswa Teknik Computer - Informatika ITS (HMTC)",
     position: "Staff – Student Talent and Interest",
     period: "March 2024 - December 2024",
+    type: "Organization",
     description:
       "Coordinated weekly training schedules for the Informatics Futsal Club, Organized friendly Futsal matches for all Informatics Engineering students, Managed and oversaw the operational activities of the club to ensure consistent participation and performance.",
   },
@@ -25,6 +28,7 @@ export const experiences: ExperienceItem[] = [
     company: "Schematics REEVA",
     position: "Expert Staff – Festival Division",
     period: "February 2024 - November 2024",
+    type: "Organization",
     description:
       "Developed storyline and scripts for the REEVA 2024 musical drama performance & Served as Front of House (FOH), acting as the primary controller for sound system, lighting, and multimedia during live events.",
   },
@@ -56,15 +60,26 @@ export const education: EducationItem[] = [
 
 // Skills data
 export const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Node.js",
-  "Laravel",
+  {
+    category: "Frontend",
+    skills: [
+      { name: "HTML", level: 95 },
+      { name: "CSS", level: 90 },
+      { name: "JavaScript", level: 90 },
+      { name: "TypeScript", level: 85 },
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 85 },
+      { name: "Tailwind CSS", level: 90 },
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      { name: "Node.js", level: 75 },
+      { name: "Laravel", level: 85 },
+      { name: "PHP", level: 80 },
+    ],
+  },
 ];
 
 // Personal data
@@ -74,4 +89,13 @@ export const personalInfo = {
     "I am currently pursuing my studies in Informatics Engineering at Institut Teknologi Sepuluh Nopember (ITS). I have a strong interest and skill set in web development, ranging from designing user interfaces to implementing full web functionality.",
     "Throughout my academic journey, I have completed various web development projects and assignments that have strengthened my understanding of responsive design, front-end and back-end development, and modern web frameworks. I enjoy creating digital solutions that are both visually appealing and functionally effective, and I am continuously working to improve and expand my skills in this field.",
   ],
+};
+
+// Combined about data export
+export const aboutData = {
+  personalInfo,
+  education,
+  experience: experiences,
+  workExperience: [], // Empty array for fallback, data will come from Supabase
+  skills,
 };

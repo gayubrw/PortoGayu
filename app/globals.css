@@ -9,6 +9,44 @@
   --text-primary: 200, 200, 200;
   --text-secondary: 120, 120, 120;
   --accent-dark: 40, 40, 40; /* Dark accent */
+
+  /* Custom Theme Colors */
+  --theme-black: #000000;
+  --theme-red: #a11312;
+  --theme-cream: #ffe5cc;
+  --theme-red-dark: #8b0f0b;
+  --theme-red-light: #c71e1e;
+  --theme-cream-dark: #e6cc99;
+  --theme-cream-light: #fff2e6;
+}
+
+/* Custom CSS Classes for reliable color application */
+.theme-text-red {
+  color: var(--theme-red) !important;
+}
+
+.theme-text-cream {
+  color: var(--theme-cream) !important;
+}
+
+.theme-text-cream-dark {
+  color: var(--theme-cream-dark) !important;
+}
+
+.theme-bg-red {
+  background-color: var(--theme-red) !important;
+}
+
+.theme-bg-cream {
+  background-color: var(--theme-cream) !important;
+}
+
+.theme-bg-black {
+  background-color: var(--theme-black) !important;
+}
+
+.theme-border-red {
+  border-color: var(--theme-red) !important;
 }
 
 @theme inline {
@@ -48,6 +86,78 @@ div {
   letter-spacing: 0.5px;
 }
 
+/* Meteor animation keyframes */
+@keyframes meteor {
+  0% {
+    transform: translateY(-100px) translateX(-100px) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(calc(100vw + 100px))
+      rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.meteor-animation {
+  animation-name: meteor;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Cyberpunk Hero Animations */
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #a11312, 0 0 10px #a11312, 0 0 15px #a11312;
+  }
+  50% {
+    box-shadow: 0 0 10px #a11312, 0 0 20px #a11312, 0 0 30px #a11312;
+  }
+}
+
+@keyframes energyFlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Holographic Display Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -70,35 +180,6 @@ body {
   position: relative;
   animation: dark-flicker 4s infinite;
   text-shadow: 0 0 5px rgba(50, 50, 50, 0.5), 0 0 10px rgba(50, 50, 50, 0.3);
-}
-
-.dark-glitch {
-  position: relative;
-  animation: dark-pulse 3s infinite;
-}
-
-.dark-glitch::before,
-.dark-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.dark-glitch::before {
-  left: 2px;
-  text-shadow: -1px 0 #333;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: dark-anim 5s infinite linear alternate-reverse;
-}
-
-.dark-glitch::after {
-  left: -2px;
-  text-shadow: -1px 0 #444;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: dark-anim2 5s infinite linear alternate-reverse;
 }
 
 /* Animation for subtle floating effect */
@@ -284,9 +365,9 @@ body {
 
 /* Button Dark */
 .btn-dark {
-  background-color: rgba(10, 10, 10, 0.9);
-  color: rgb(220, 220, 220);
-  border: 1px solid rgba(50, 50, 50, 0.5);
+  background-color: #000000;
+  color: #a11312;
+  border: 1px solid #a11312;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.875rem;
@@ -299,9 +380,9 @@ body {
 }
 
 .btn-dark:hover {
-  background-color: rgba(20, 20, 20, 0.9);
-  border-color: rgba(70, 70, 70, 0.7);
-  color: rgb(200, 200, 200);
+  background-color: #a11312;
+  border-color: #a11312;
+  color: #ffe5cc;
 }
 
 .btn-dark::after {
@@ -311,12 +392,7 @@ body {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(70, 70, 70, 0.7),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #a11312, transparent);
   z-index: -1;
 }
 
@@ -785,8 +861,8 @@ select {
 /* Royal Ornate Frame Styling */
 .ornate-frame {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(50, 50, 50, 0.5);
+  background-color: rgba(16, 24, 32, 0.8);
+  border: 1px solid rgba(254, 231, 21, 0.5);
 }
 
 .ornate-frame::before,
@@ -834,7 +910,7 @@ select {
 
 .ornate-inner {
   position: relative;
-  border: 1px solid rgba(40, 40, 40, 0.7);
+  border: 1px solid rgba(254, 231, 21, 0.7);
 }
 
 /* professional portfolio title styling */
@@ -1482,15 +1558,6 @@ select {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* Professional accent elements */
 .accent-line {
   width: 40px;
@@ -1994,9 +2061,9 @@ select {
 
 /* Penyesuaian untuk button dan divider */
 .btn-dark {
-  background-color: rgba(10, 10, 10, 0.9);
-  color: rgb(220, 220, 220);
-  border: 1px solid rgba(50, 50, 50, 0.5);
+  background-color: #000000;
+  color: #a11312;
+  border: 1px solid #a11312;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.875rem;
@@ -2009,9 +2076,9 @@ select {
 }
 
 .btn-dark:hover {
-  background-color: rgba(20, 20, 20, 0.9);
-  border-color: rgba(70, 70, 70, 0.7);
-  color: rgb(200, 200, 200);
+  background-color: #a11312;
+  border-color: #a11312;
+  color: #ffe5cc;
 }
 
 .btn-dark::after {
@@ -2021,12 +2088,7 @@ select {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(70, 70, 70, 0.7),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #a11312, transparent);
   z-index: -1;
 }
 

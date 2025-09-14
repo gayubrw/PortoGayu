@@ -1,72 +1,33 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-900 py-12">
+    <footer className="bg-black border-t border-theme-red py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Column 1 - Logo and Description */}
           <div className="space-y-4">
-            <div className="text-xl font-bold tracking-wider text-white">
-              Porto<span className="text-gray-500">Gayu</span>
+            <div className="text-xl font-bold tracking-wider">
+              <span className="theme-text-red">Gayu</span>
+              <span className="theme-text-cream">Baruwa</span>
             </div>
-            <p className="text-gray-500 text-sm">
+            <p className="text-sm theme-text-cream">
               A showcase of web development and design projects created with
               precision and creativity. Exploring the intersection of
               functionality and aesthetics.
             </p>
           </div>
 
-          {/* Column 2 - Navigation */}
-          <div className="space-y-4">
-            <h3 className="text-gray-400 uppercase text-sm tracking-wider">
-              NAVIGATION
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-500 hover:text-white transition-colors text-sm"
-                >
-                  HOME
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-gray-500 hover:text-white transition-colors text-sm"
-                >
-                  PROJECTS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-500 hover:text-white transition-colors text-sm"
-                >
-                  ABOUT
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-500 hover:text-white transition-colors text-sm"
-                >
-                  CONTACT
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Column 2 - Empty (spacer) */}
+          <div></div>
 
           {/* Column 3 - Contact */}
           <div className="space-y-4">
-            <h3 className="text-gray-400 uppercase text-sm tracking-wider">
+            <h3 className="uppercase text-sm tracking-wider theme-text-red">
               CONTACT
             </h3>
             <ul className="space-y-2">
               <li className="flex items-start space-x-3 text-sm">
                 <svg
-                  className="h-5 w-5 text-gray-500 mt-0.5"
+                  className="h-5 w-5 text-theme-red mt-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -78,11 +39,11 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span className="text-gray-500">gayubaruwa27@gmail.com</span>
+                <span className="theme-text-cream">gayubaruwa27@gmail.com</span>
               </li>
               <li className="flex items-start space-x-3 text-sm">
                 <svg
-                  className="h-5 w-5 text-gray-500 mt-0.5"
+                  className="h-5 w-5 text-theme-red mt-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -100,7 +61,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span className="text-gray-500">
+                <span className="theme-text-cream">
                   Surabaya, East Java, Indonesia
                 </span>
               </li>
@@ -109,12 +70,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="pt-8 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} PortoGayu. ALL RIGHTS RESERVED.
+        <div className="pt-8 border-t border-theme-red flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-xs theme-text-cream">
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="theme-text-red">PortoGayu</span>. ALL RIGHTS
+            RESERVED.
           </p>
-          <div className="text-gray-600 text-xs mt-4 sm:mt-0">
-            DESIGNED & DEVELOPED BY GAYU BARUWA
+          <div className="text-xs mt-4 sm:mt-0 theme-text-red">
+            DESIGNED & DEVELOPED BY{" "}
+            <span className="theme-text-cream">GAYU BARUWA</span>
           </div>
         </div>
       </div>

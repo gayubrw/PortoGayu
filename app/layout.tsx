@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
+import ConditionalFooter from "@/components/ui/ConditionalFooter";
 
 // Define metadata
 export const metadata: Metadata = {
   title: "PortoGayu | Welcome",
   description:
     "Professional portfolio showcasing the web development and design work of Gayu Baruwa.",
+  icons: {
+    icon: "/images/icon2.jpg",
+    shortcut: "/images/icon2.jpg",
+    apple: "/images/icon2.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -45,7 +50,7 @@ export default function RootLayout({
 
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );

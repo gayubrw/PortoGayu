@@ -8,8 +8,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="bg-dark-gray border border-border-dark rounded-lg overflow-hidden shadow-dark-lg">
-      <div className="h-48 w-full relative bg-darker-gray">
+    <div className="theme-bg-black border border-theme-red/20 rounded-lg overflow-hidden shadow-lg">
+      <div className="h-48 w-full relative theme-bg-black">
         {/* Menampilkan gambar proyek yang sebenarnya */}
         {project.imageUrl ? (
           <Image
@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           />
         ) : (
           // Placeholder hanya ditampilkan jika tidak ada imageUrl
-          <div className="w-full h-full flex items-center justify-center text-text-tertiary">
+          <div className="w-full h-full flex items-center justify-center theme-text-cream">
             <svg className="h-12 w-12" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
@@ -34,17 +34,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg leading-6 font-medium text-text-primary">
+        <h3 className="text-lg leading-6 font-medium text-theme-cream">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-text-secondary">
-          {project.description}
-        </p>
+        <p className="mt-2 text-sm theme-text-cream">{project.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag, tagIndex) => (
             <span
               key={tagIndex}
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary-light"
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium theme-bg-red/20 theme-text-red"
             >
               {tag}
             </span>
@@ -52,10 +50,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
-      <div className="px-4 py-4 sm:px-6 bg-darker-gray flex justify-between">
+      <div className="px-4 py-4 sm:px-6 theme-bg-black border-t border-theme-red/20 flex justify-between">
         <Link
           href={`/projects/${project.id}`}
-          className="text-sm font-medium text-primary-light hover:text-primary"
+          className="text-sm font-medium text-theme-red hover:text-theme-cream"
         >
           Detail
         </Link>
@@ -63,7 +61,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex space-x-4">
           <a
             href={project.demoUrl}
-            className="text-sm font-medium text-primary-light hover:text-primary"
+            className="text-sm font-medium text-theme-red hover:text-theme-cream"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -71,7 +69,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </a>
           <a
             href={project.githubUrl}
-            className="text-sm font-medium text-primary-light hover:text-primary"
+            className="text-sm font-medium text-theme-red hover:text-theme-cream"
             target="_blank"
             rel="noopener noreferrer"
           >

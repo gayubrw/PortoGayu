@@ -26,7 +26,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/90 backdrop-blur-sm py-3 shadow-md shadow-black/30"
+          ? "bg-black/90 backdrop-blur-sm py-3 shadow-md shadow-theme-red/30"
           : "bg-transparent py-5"
       }`}
     >
@@ -35,10 +35,10 @@ export default function Navbar() {
           {/* Logo with proper capitalization */}
           <Link
             href="/"
-            className="text-xl font-bold tracking-wider hover:text-gray-300 transition-colors"
+            className="text-xl font-bold tracking-wider hover:text-theme-red transition-colors"
           >
-            <span className="normal-case text-white">Porto</span>
-            <span className="normal-case text-gray-500">Gayu</span>
+            <span className="normal-case theme-text-red">Gayu</span>
+            <span className="normal-case theme-text-cream">Baruwa</span>
           </Link>
 
           {/* Desktop Navigation - centered and with proper spacing */}
@@ -52,10 +52,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm text-gray-400 hover:text-white normal-case font-medium tracking-wide transition-colors relative group"
+                className="px-3 py-2 text-sm hover:text-theme-red normal-case font-medium tracking-wide transition-colors relative group theme-text-cream"
               >
                 <span>{item.name}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-theme-red transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-400 hover:text-white focus:outline-none"
+            className="md:hidden hover:text-theme-red focus:outline-none theme-text-cream"
           >
             <span className="sr-only">Open menu</span>
             {mobileMenuOpen ? (
@@ -103,7 +103,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-black border-t border-gray-800 transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 bg-black border-t border-theme-red transition-all duration-300 ${
           mobileMenuOpen
             ? "max-h-96 opacity-100"
             : "max-h-0 opacity-0 invisible"
@@ -119,7 +119,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="block px-3 py-2 text-sm text-gray-400 hover:text-white normal-case font-medium"
+              className="block px-3 py-2 text-sm hover:text-theme-red normal-case font-medium theme-text-cream"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}

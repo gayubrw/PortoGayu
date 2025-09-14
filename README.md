@@ -76,45 +76,57 @@ Website ini bisa di-deploy dengan mudah menggunakan [Vercel](https://vercel.com/
 3. Set build command: `npm run build` atau `yarn build`
 4. Set output directory: `out`
 
-## Kustomisasi
+## Backend Integration
 
-### Mengubah Informasi Personal
+Portfolio ini telah terintegrasi dengan **Supabase** sebagai backend untuk:
 
-Edit file berikut untuk menyesuaikan informasi personal:
+- ✅ **Contact Form**: Form kontak yang functional dengan database storage
+- ✅ **Project Management**: Kelola projects dari database
+- ✅ **Admin Dashboard**: Panel admin untuk melihat pesan kontak
+- ✅ **Visitor Analytics**: Tracking pengunjung website
 
-- `components/sections/Hero.tsx` - Nama dan tagline
-- `components/sections/About.tsx` - Informasi tentang diri
-- `components/sections/Skills.tsx` - Keahlian teknis
-- `app/about/page.tsx` - Detail lengkap tentang diri, pendidikan, dan pengalaman
-- `components/ui/Footer.tsx` - Link media sosial
+### Setup Backend
 
-### Mengubah Proyek
+1. **Quick Setup**: Ikuti panduan lengkap di [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
 
-Edit file `components/sections/Projects.tsx` dan `app/projects/page.tsx` untuk menambahkan atau mengubah proyek yang ditampilkan.
+2. **Manual Setup**:
 
-### Mengubah Warna
+   ```bash
+   # Install Supabase
+   npm install @supabase/supabase-js
 
-Edit file `tailwind.config.ts` untuk mengubah skema warna:
+   # Copy environment variables
+   cp .env.local.example .env.local
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      'primary': '#3490dc', // Ubah warna primary
-      'secondary': '#ffed4a', // Ubah warna secondary
-      'dark': '#2d3748', // Ubah warna dark
-    },
-  },
-},
-```
+   # Edit .env.local dengan Supabase credentials Anda
+   ```
+
+3. **Database Schema**: Jalankan SQL di `supabase/schema.sql` di Supabase SQL Editor
+
+### Fallback Strategy
+
+- Jika Supabase tidak dikonfigurasi, website tetap berjalan dengan data statis
+- Contact form akan menampilkan error message yang informatif
+- Projects menggunakan data dari `lib/projectData.ts`
+
+### API Endpoints
+
+- `POST /api/contact` - Submit contact form
+- `GET /api/projects` - Fetch projects dari database
+- `GET /admin` - Admin dashboard (belum ada auth)
 
 ## Fitur Tambahan yang Bisa Diimplementasikan
 
 - Mode dark/light dengan toggle
 - Blog dengan MDX
 - Animasi dengan Framer Motion
-- Integrasi form kontak dengan backend (Supabase, Firebase, dll)
+- ✅ ~~Integrasi form kontak dengan backend (Supabase, Firebase, dll)~~ **SELESAI**
 - i18n untuk multi-bahasa
+- Email notifications untuk contact form
+- Authentication untuk admin panel
+- File upload untuk project images
+- SEO optimization
+- PWA (Progressive Web App)
 
 ## Lisensi
 
