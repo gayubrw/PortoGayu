@@ -11,6 +11,15 @@ export default function AdminPage() {
   const fetchMessages = async () => {
     try {
       setLoading(true);
+
+      // Check if Supabase is configured
+      if (!supabase) {
+        setError(
+          "Supabase is not configured. Admin panel requires database connection."
+        );
+        return;
+      }
+
       const { data, error } = await supabase
         .from("contact_messages")
         .select("*")
@@ -32,6 +41,12 @@ export default function AdminPage() {
 
   const markAsRead = async (id: number) => {
     try {
+      // Check if Supabase is configured
+      if (!supabase) {
+        console.error("Supabase is not configured");
+        return;
+      }
+
       const { error } = await supabase
         .from("contact_messages")
         .update({ status: "read" })

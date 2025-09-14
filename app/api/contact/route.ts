@@ -12,7 +12,6 @@ export async function POST(request: NextRequest) {
 
     console.log("Supabase URL exists:", !!supabaseUrl);
     console.log("Supabase Key exists:", !!supabaseKey);
-    console.log("Supabase URL:", supabaseUrl?.substring(0, 30) + "...");
 
     const body: ContactFormData = await request.json();
     console.log("Request body received:", {
@@ -39,6 +38,20 @@ export async function POST(request: NextRequest) {
         { error: "Invalid email format" },
         { status: 400 }
       );
+    }
+
+    // Check if Supabase is properly configured
+    if (!supabaseUrl || !supabaseKey || !supabaseAdmin) {
+      console.log("Supabase not configured, returning mock success");
+      return NextResponse.json({
+        success: true,
+        message: "Message received (Supabase not configured - mock mode)",
+        data: {
+          name: body.name,
+          email: body.email,
+          subject: body.subject,
+        },
+      });
     }
 
     console.log("About to insert into Supabase...");

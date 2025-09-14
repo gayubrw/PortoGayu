@@ -18,7 +18,8 @@ export async function getProjects(): Promise<ProjectType[]> {
     // Check if Supabase is configured
     if (
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      !supabase
     ) {
       console.log("Supabase not configured, using static data");
       return staticProjects;
@@ -69,7 +70,8 @@ export async function logVisitor(pageVisited: string, request?: Request) {
   try {
     if (
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      !supabase
     ) {
       return; // Supabase not configured
     }
@@ -112,7 +114,8 @@ export async function getContactData(): Promise<ContactDataType> {
   try {
     if (
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      !supabase
     ) {
       return staticContactData;
     }
@@ -153,7 +156,8 @@ export async function getAboutData(): Promise<AboutDataType> {
   try {
     if (
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      !supabase
     ) {
       return staticAboutData;
     }
@@ -210,7 +214,8 @@ export async function getHeroData(): Promise<HeroDataType> {
   try {
     if (
       !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      !supabase
     ) {
       return getDefaultHeroData();
     }
