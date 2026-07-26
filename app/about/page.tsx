@@ -5,7 +5,7 @@ import Image from "next/image"; // Import Image component
 export const metadata: Metadata = {
   title: "PortoGayu | About Me",
   description:
-    "Informasi tentang latar belakang, pengalaman, dan pendidikan saya.",
+    "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
 };
 
 export default async function AboutPage() {
@@ -223,8 +223,175 @@ export default async function AboutPage() {
             </span>
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {/* HTML */}
+          <div className="space-y-14">
+            {/* Machine Learning & Data */}
+            <div>
+              <h3 className="text-lg font-semibold theme-text-red mb-6 text-center tracking-wide uppercase">
+                Machine Learning &amp; Data
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {/* Python */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    className="w-12 h-12 mb-2 text-blue-400 fill-current"
+                  >
+                    <path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Python
+                  </span>
+                </div>
+
+                {/* NumPy */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-sky-400 fill-current"
+                  >
+                    <rect x="3" y="3" width="5" height="5" rx="1" />
+                    <rect x="9.5" y="3" width="5" height="5" rx="1" />
+                    <rect x="16" y="3" width="5" height="5" rx="1" />
+                    <rect x="3" y="9.5" width="5" height="5" rx="1" />
+                    <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+                    <rect x="16" y="9.5" width="5" height="5" rx="1" />
+                    <rect x="3" y="16" width="5" height="5" rx="1" />
+                    <rect x="9.5" y="16" width="5" height="5" rx="1" />
+                    <rect x="16" y="16" width="5" height="5" rx="1" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    NumPy
+                  </span>
+                </div>
+
+                {/* Pandas */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-purple-400 fill-current"
+                  >
+                    <rect x="4" y="3" width="3.2" height="18" rx="1" />
+                    <rect x="10.4" y="3" width="3.2" height="6" rx="1" />
+                    <rect x="10.4" y="11" width="3.2" height="10" rx="1" />
+                    <rect x="16.8" y="3" width="3.2" height="12" rx="1" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Pandas
+                  </span>
+                </div>
+
+                {/* Scikit-learn */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-orange-400 fill-current"
+                  >
+                    <path d="M9 2h6v2h-1v4.3l4.7 8.2A2 2 0 0 1 16.9 20H7.1a2 2 0 0 1-1.8-3.5L10 8.3V4H9V2z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Scikit-learn
+                  </span>
+                </div>
+
+                {/* PyTorch */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-orange-500 fill-current"
+                  >
+                    <path d="M13 2c.5 3-1.4 4.6-2.9 6.5C8.6 10.3 8 12 8 13.6a4.4 4.4 0 0 0 8.8 0c0-2-1-3.8-2.5-5.1C13.6 7.4 13 5 13 2z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    PyTorch
+                  </span>
+                </div>
+
+                {/* Deep Learning */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-rose-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.3}
+                  >
+                    <line x1="5" y1="7" x2="12" y2="12" />
+                    <line x1="5" y1="17" x2="12" y2="12" />
+                    <line x1="12" y1="12" x2="19" y2="7" />
+                    <line x1="12" y1="12" x2="19" y2="17" />
+                    <circle cx="5" cy="7" r="2" fill="currentColor" stroke="none" />
+                    <circle cx="5" cy="17" r="2" fill="currentColor" stroke="none" />
+                    <circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none" />
+                    <circle cx="19" cy="7" r="2" fill="currentColor" stroke="none" />
+                    <circle cx="19" cy="17" r="2" fill="currentColor" stroke="none" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Deep Learning
+                  </span>
+                </div>
+
+                {/* NLP */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-green-400 fill-current"
+                  >
+                    <path d="M4 4h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4 3v-3H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    NLP
+                  </span>
+                </div>
+
+                {/* Data Clustering */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-cyan-400 fill-current"
+                  >
+                    <circle cx="6" cy="7" r="1.7" />
+                    <circle cx="9.5" cy="5.5" r="1.7" />
+                    <circle cx="7.5" cy="10.5" r="1.7" />
+                    <circle cx="15.5" cy="14" r="1.7" />
+                    <circle cx="19" cy="13" r="1.7" />
+                    <circle cx="17" cy="18" r="1.7" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Data Clustering
+                  </span>
+                </div>
+
+                {/* FastAPI */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-emerald-400 fill-current"
+                  >
+                    <path d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    FastAPI
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Web Development */}
+            <div>
+              <h3 className="text-lg font-semibold theme-text-red mb-6 text-center tracking-wide uppercase">
+                Web Development
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {/* HTML */}
             <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -375,6 +542,8 @@ export default async function AboutPage() {
               <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
                 Laravel
               </span>
+            </div>
+              </div>
             </div>
           </div>
         </div>

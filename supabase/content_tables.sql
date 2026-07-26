@@ -189,8 +189,12 @@ INSERT INTO about_data (
 ) VALUES (
     '{
         "name": "Gayu Baruwa",
-        "title": "Full-Stack Developer",
-        "bio": "Passionate full-stack developer with expertise in modern web technologies. Experienced in building scalable applications using React, Next.js, Laravel, and various databases.",
+        "title": "Machine Learning & NLP Enthusiast | Full-Stack Web Developer",
+        "bio": [
+            "I''m an Informatics Engineering student at Institut Teknologi Sepuluh Nopember (ITS), with a primary focus on Machine Learning, NLP, and Data Science, complemented by full-stack web development experience.",
+            "I''ve worked on projects covering text clustering, deep learning-based computer vision, and end-to-end ML pipelines, from data preprocessing to model evaluation. I also completed Dicoding Indonesia''s Machine Learning Bootcamp (Batch 8).",
+            "On the software engineering side, I interned at GMF AeroAsia, building internal automation tools using Microsoft Power Apps, Power Automate, and SharePoint. I''ve also built web applications using Laravel, Vue.js, React, and Next.js."
+        ],
         "location": "Surabaya, East Java, Indonesia",
         "email": "gayubaruwa27@gmail.com"
     }'::jsonb,
@@ -198,8 +202,14 @@ INSERT INTO about_data (
         {
             "degree": "Bachelor of Informatics Engineering",
             "institution": "Institut Teknologi Sepuluh Nopember (ITS)",
-            "period": "2021 - Present",
-            "description": "Currently pursuing a degree in Informatics Engineering with focus on software development and computer science fundamentals."
+            "period": "2022 - Present",
+            "description": "GPA: 3.39/4.00"
+        },
+        {
+            "degree": "Machine Learning Engineer - Batch 8",
+            "institution": "Dicoding Bootcamp",
+            "period": "June 2025 - November 2025",
+            "description": "Learn machine learning techniques, data processing with Python, and the application of AI algorithms to technology-based industries."
         }
     ]'::jsonb,
     '[
@@ -261,8 +271,8 @@ INSERT INTO hero_data (
     background_config
 ) VALUES (
     'Gayu Baruwa',
-    'Full-Stack Developer & Tech Enthusiast',
-    'Passionate about creating modern, scalable web applications with clean code and exceptional user experiences. Specialized in React, Next.js, Laravel, and modern database technologies.',
+    'Machine Learning & NLP Enthusiast | Full-Stack Web Developer',
+    'Informatics Engineering student building end-to-end ML/NLP pipelines and deep learning models, alongside full-stack web applications.',
     '[
         {
             "text": "View My Work",
@@ -291,7 +301,7 @@ INSERT INTO site_settings (
     seo_config
 ) VALUES (
     'PortoGayu',
-    'Portfolio website of Gayu Baruwa - Full-Stack Developer specializing in modern web technologies',
+    'Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.',
     'https://portogayu.vercel.app',
     '{
         "primaryColor": "#ffffff",
@@ -300,7 +310,7 @@ INSERT INTO site_settings (
         "fontFamily": "Inter, system-ui, sans-serif"
     }'::jsonb,
     '{
-        "keywords": ["portfolio", "full-stack developer", "web development", "React", "Next.js", "Laravel"],
+        "keywords": ["portfolio", "machine learning", "NLP", "data science", "deep learning", "PyTorch", "full-stack developer", "web development", "React", "Next.js", "Laravel"],
         "author": "Gayu Baruwa",
         "ogImage": "/images/og-image.png"
     }'::jsonb

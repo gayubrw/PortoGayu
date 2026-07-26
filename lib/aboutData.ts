@@ -35,9 +35,16 @@ export const experiences: ExperienceItem[] = [
   {
     company: "UKM Golf ITS",
     position: "Head of Finance Division",
-    period: "February 2024 – December 2024",
+    period: "Feb 2024 - Feb 2025",
     description:
-      "Oversaw vendor acquisition for merchandise production to support club branding & Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
+      "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
+  },
+  {
+    company: "UKM Golf ITS",
+    position: "Head of Finance Division",
+    period: "Feb 2023 - Feb 2024",
+    description:
+      "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
   },
 ];
 
@@ -45,14 +52,14 @@ export const experiences: ExperienceItem[] = [
 export const education: EducationItem[] = [
   {
     institution: "Sepuluh Nopember Institute of Technology",
-    degree: "Bachelor of Information Technology",
+    degree: "Bachelor of Informatics Engineering",
     period: "2022 - Present",
-    description: "GPA: 3.22/4.0. Active in campus organizations.",
+    description: "GPA: 3.39/4.00",
   },
   {
     institution: "Dicoding Bootcamp",
     degree: "Machine Learning Engineer - Batch 8",
-    period: "July - November 2025",
+    period: "June 2025 - November 2025",
     description:
       "Learn machine learning techniques, data processing with Python, and the application of AI algorithms to technology-based industries.",
   },
@@ -86,8 +93,9 @@ export const skills = [
 export const personalInfo = {
   name: "Gayu Baruwa",
   bio: [
-    "I am currently pursuing my studies in Informatics Engineering at Institut Teknologi Sepuluh Nopember (ITS). I have a strong interest and skill set in web development, ranging from designing user interfaces to implementing full web functionality.",
-    "Throughout my academic journey, I have completed various web development projects and assignments that have strengthened my understanding of responsive design, front-end and back-end development, and modern web frameworks. I enjoy creating digital solutions that are both visually appealing and functionally effective, and I am continuously working to improve and expand my skills in this field.",
+    "I'm an Informatics Engineering student at Institut Teknologi Sepuluh Nopember (ITS), with a primary focus on Machine Learning, NLP, and Data Science, complemented by full-stack web development experience.",
+    "I've worked on projects covering text clustering, deep learning-based computer vision, and end-to-end ML pipelines, from data preprocessing to model evaluation. I also completed Dicoding Indonesia's Machine Learning Bootcamp (Batch 8).",
+    "On the software engineering side, I interned at GMF AeroAsia, building internal automation tools using Microsoft Power Apps, Power Automate, and SharePoint. I've also built web applications using Laravel, Vue.js, React, and Next.js.",
   ],
 };
 

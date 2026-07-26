@@ -137,12 +137,47 @@ CREATE POLICY "Authenticated users can manage blog posts" ON blog_posts
 -- Insert sample data for projects (based on existing projectData.ts)
 INSERT INTO projects (title, description, long_description, tags, image_url, demo_url, github_url, features, order_index) VALUES
 (
+    'Face Recognition with ArcFace and ResNet50',
+    'Group project implementing ArcFace loss from scratch in PyTorch with a pretrained ResNet50 backbone for face recognition on the CASIA dataset.',
+    'Implemented ArcFace loss (Deng et al., IEEE T-PAMI 2021) from scratch in PyTorch, using a pretrained ResNet50 backbone with a 512-dim BN-Dropout-FC-BN embedding head, following the paper''s exact hyperparameters (s=64, m=0.5, SGD with MultiStep LR). Trained on the CASIA face dataset (200 identity classes, ~20K images, 80/20 split) on Google Colab with a Tesla T4 GPU over 32 epochs. This is a research/training notebook rather than a deployed application.',
+    ARRAY['PyTorch', 'ResNet50', 'ArcFace', 'Computer Vision', 'Google Colab'],
+    '',
+    '',
+    '',
+    ARRAY[
+        '50.08% Top-1 accuracy (100x above random chance)',
+        '66.07% Top-3 accuracy',
+        '0.9557 macro-average AUC across all 200 classes',
+        'ArcFace loss implemented from scratch following the paper''s hyperparameters',
+        'Pretrained ResNet50 backbone with a 512-dim BN-Dropout-FC-BN embedding head',
+        'Evaluated with confusion matrix, ROC curves, and t-SNE embedding visualization'
+    ],
+    1
+),
+(
+    'Skincare Compatibility Checker',
+    'Capstone project: a rule-based NLP/ML engine detecting skincare ingredient incompatibilities, served via a FastAPI backend to a Flutter mobile app.',
+    'Built a rule-based NLP/ML engine to detect skincare ingredient incompatibilities, covering 6 major active-ingredient groups (retinoids, vitamin C, AHA, BHA, niacinamide, benzoyl peroxide) across 7 pairwise interaction rules with graded AVOID/CAUTION severity levels. Cleaned, deduplicated, and merged skincare datasets from 3 sources (Kaggle Cosmetics, Sephora Ingredients, product catalogs) into a unified corpus of 4,082 products spanning 116 brands and 6,696 unique INCI ingredients, normalized into 13 functional categories. Also developed a content-based recommendation engine using cosine similarity over ingredient-function profiles (4,082 x 4,082 similarity matrix).',
+    ARRAY['Python', 'NLP', 'Scikit-learn', 'FastAPI', 'Flutter (collaboration)'],
+    '',
+    '',
+    '',
+    ARRAY[
+        '4,082 products analyzed across 116 brands',
+        '6,696 unique INCI ingredients normalized into 13 functional categories',
+        '6 active-ingredient groups across 7 pairwise interaction rules with graded AVOID/CAUTION severity',
+        'Content-based recommendation engine using cosine similarity (4,082 x 4,082 matrix)',
+        'Integrated into a FastAPI backend, deployed to a Flutter mobile app'
+    ],
+    2
+),
+(
     'Catharsis Empire',
     'A Laravel-based e-commerce platform with a modern design and a complete shopping system.',
     'Catharsis Empire is an e-commerce application built with Laravel as the main backend framework. This project integrates Vite for modern asset management and uses Tailwind CSS, Bootstrap, and Alpine.js for an interactive and responsive front-end. The application includes product catalog features, shopping cart, checkout system, user authentication, and an admin panel for product management.',
     ARRAY['Laravel', 'PHP', 'Vite', 'Tailwind CSS', 'Bootstrap', 'Alpine.js', 'Axios'],
     '/images/project1.png',
-    '#',
+    '',
     'https://github.com/gayubrw/catharsis_empire.git',
     ARRAY[
         'Product catalog with search and filter functionality',
@@ -152,7 +187,7 @@ INSERT INTO projects (title, description, long_description, tags, image_url, dem
         'Admin panel for product management',
         'Responsive design using Tailwind CSS and Bootstrap'
     ],
-    1
+    3
 ),
 (
     'Catharsis Empire 2',
@@ -160,7 +195,7 @@ INSERT INTO projects (title, description, long_description, tags, image_url, dem
     'Catharsis Empire 2 is the frontend interface of the Catharsis Empire e-commerce platform, developed using Vue.js. While it differs in its technological implementation from the first Catharsis Empire project, both serve the same brand and product line. This project focuses on a clean and intuitive design, leveraging Vue''s component-based architecture for efficient development.',
     ARRAY['Vue.js', 'JavaScript', 'CSS', 'HTML', 'Responsive Design'],
     '/images/project2.png',
-    '#',
+    '',
     'https://github.com/gayubrw/catharsis_empire_2.git',
     ARRAY[
         'Product catalog with interactive components',
@@ -169,7 +204,7 @@ INSERT INTO projects (title, description, long_description, tags, image_url, dem
         'Responsive Vue.js design',
         'Component-based architecture'
     ],
-    2
+    4
 );
 
 -- Grant necessary permissions (run as superuser or admin)

@@ -244,9 +244,9 @@ export async function getHeroData(): Promise<HeroDataType> {
 
 function getDefaultHeroData(): HeroDataType {
   return {
-    tagline: "Full-Stack Developer & Tech Enthusiast",
+    tagline: "Machine Learning & NLP Enthusiast | Full-Stack Web Developer",
     description:
-      "Passionate about creating modern, scalable web applications with clean code and exceptional user experiences.",
+      "Informatics Engineering student building end-to-end ML/NLP pipelines and deep learning models, alongside full-stack web applications.",
     ctaButtons: [
       { text: "View My Work", href: "/projects", type: "primary" },
       { text: "Get In Touch", href: "/contact", type: "secondary" },

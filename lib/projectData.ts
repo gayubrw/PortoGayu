@@ -12,6 +12,51 @@ export interface ProjectType {
 
 export const projects: ProjectType[] = [
   {
+    id: 5,
+    title: "Face Recognition with ArcFace and ResNet50",
+    description:
+      "Group project implementing ArcFace loss from scratch in PyTorch with a pretrained ResNet50 backbone for face recognition on the CASIA dataset.",
+    longDescription:
+      "Implemented ArcFace loss (Deng et al., IEEE T-PAMI 2021) from scratch in PyTorch, using a pretrained ResNet50 backbone with a 512-dim BN-Dropout-FC-BN embedding head, following the paper's exact hyperparameters (s=64, m=0.5, SGD with MultiStep LR). Trained on the CASIA face dataset (200 identity classes, ~20K images, 80/20 split) on Google Colab with a Tesla T4 GPU over 32 epochs. This is a research/training notebook rather than a deployed application.",
+    tags: [
+      "PyTorch",
+      "ResNet50",
+      "ArcFace",
+      "Computer Vision",
+      "Google Colab",
+    ],
+    imageUrl: "",
+    demoUrl: "",
+    githubUrl: "",
+    features: [
+      "50.08% Top-1 accuracy (100x above random chance)",
+      "66.07% Top-3 accuracy",
+      "0.9557 macro-average AUC across all 200 classes",
+      "ArcFace loss implemented from scratch following the paper's hyperparameters",
+      "Pretrained ResNet50 backbone with a 512-dim BN-Dropout-FC-BN embedding head",
+      "Evaluated with confusion matrix, ROC curves, and t-SNE embedding visualization",
+    ],
+  },
+  {
+    id: 6,
+    title: "Skincare Compatibility Checker",
+    description:
+      "Capstone project: a rule-based NLP/ML engine detecting skincare ingredient incompatibilities, served via a FastAPI backend to a Flutter mobile app.",
+    longDescription:
+      "Built a rule-based NLP/ML engine to detect skincare ingredient incompatibilities, covering 6 major active-ingredient groups (retinoids, vitamin C, AHA, BHA, niacinamide, benzoyl peroxide) across 7 pairwise interaction rules with graded AVOID/CAUTION severity levels. Cleaned, deduplicated, and merged skincare datasets from 3 sources (Kaggle Cosmetics, Sephora Ingredients, product catalogs) into a unified corpus of 4,082 products spanning 116 brands and 6,696 unique INCI ingredients, normalized into 13 functional categories. Also developed a content-based recommendation engine using cosine similarity over ingredient-function profiles (4,082 x 4,082 similarity matrix).",
+    tags: ["Python", "NLP", "Scikit-learn", "FastAPI", "Flutter (collaboration)"],
+    imageUrl: "",
+    demoUrl: "",
+    githubUrl: "",
+    features: [
+      "4,082 products analyzed across 116 brands",
+      "6,696 unique INCI ingredients normalized into 13 functional categories",
+      "6 active-ingredient groups across 7 pairwise interaction rules with graded AVOID/CAUTION severity",
+      "Content-based recommendation engine using cosine similarity (4,082 x 4,082 matrix)",
+      "Integrated into a FastAPI backend, deployed to a Flutter mobile app",
+    ],
+  },
+  {
     id: 1,
     title: "Catharsis Empire",
     description:
@@ -28,7 +73,7 @@ export const projects: ProjectType[] = [
       "Axios",
     ],
     imageUrl: "/images/project1.png",
-    demoUrl: "#",
+    demoUrl: "",
     githubUrl: "https://github.com/gayubrw/catharsis_empire.git",
     features: [
       "Product catalog with search and filter functionality",
@@ -55,7 +100,7 @@ export const projects: ProjectType[] = [
       "Vuex",
     ],
     imageUrl: "/images/project2.png",
-    demoUrl: "#",
+    demoUrl: "",
     githubUrl: "https://github.com/gayubrw/catharsis_empire2/tree/main/vue",
     features: [
       "Responsive product catalog with filtering options",
@@ -81,7 +126,7 @@ export const projects: ProjectType[] = [
       "React Router",
     ],
     imageUrl: "/images/project3.png",
-    demoUrl: "#",
+    demoUrl: "",
     githubUrl: "https://github.com/gayubrw/goat_news",
     features: [
       "Real-time retrieval of the latest news from the API",
@@ -108,7 +153,7 @@ export const projects: ProjectType[] = [
       "PostgreSQL",
     ],
     imageUrl: "/images/project4.png",
-    demoUrl: "#",
+    demoUrl: "",
     githubUrl: "https://github.com/gayubrw/PortoGayu.git",
     features: [
       "Modern responsive design with Tailwind CSS",

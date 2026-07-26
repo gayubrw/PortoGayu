@@ -7,7 +7,7 @@ import ConditionalFooter from "@/components/ui/ConditionalFooter";
 export const metadata: Metadata = {
   title: "PortoGayu | Welcome",
   description:
-    "Professional portfolio showcasing the web development and design work of Gayu Baruwa.",
+    "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
   icons: {
     icon: "/images/icon2.jpg",
     shortcut: "/images/icon2.jpg",
