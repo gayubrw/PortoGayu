@@ -581,6 +581,64 @@ export default async function AboutPage() {
                 </div>
               </div>
             </div>
+
+            {/* Microsoft Power Platform */}
+            <div>
+              <h3 className="text-lg font-semibold theme-text-red mb-6 text-center tracking-wide uppercase">
+                Microsoft Power Platform
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {/* Power Apps */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-purple-400 fill-current"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="4" opacity="0.3" />
+                    <path d="M12 6l4 6-4 6-4-6 4-6z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Power Apps
+                  </span>
+                </div>
+
+                {/* Power Automate */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-sky-500 fill-current"
+                  >
+                    <path d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143z" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Power Automate
+                  </span>
+                </div>
+
+                {/* SharePoint */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-teal-500"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.6}
+                  >
+                    <circle cx="6" cy="12" r="2.6" fill="currentColor" stroke="none" />
+                    <circle cx="18" cy="6" r="2.6" fill="currentColor" stroke="none" />
+                    <circle cx="18" cy="18" r="2.6" fill="currentColor" stroke="none" />
+                    <line x1="8.2" y1="11" x2="15.8" y2="7" />
+                    <line x1="8.2" y1="13" x2="15.8" y2="17" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    SharePoint
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
