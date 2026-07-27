@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getContactData } from "@/lib/utils";
-import ContactForm from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "PortoGayu | Contact",
@@ -180,7 +179,7 @@ export default async function ContactPage() {
                             >
                               {renderSocialIcon(social.icon)}
                             </a>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -208,17 +207,12 @@ export default async function ContactPage() {
                           >
                             {button.text}
                           </Link>
-                        )
+                        ),
                       )}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="mb-16">
-              <ContactForm />
             </div>
           </div>
         </div>

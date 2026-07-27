@@ -4,19 +4,7 @@
 -- Enable Row Level Security (RLS) by default
 -- This ensures data security
 
--- 1. Contact Messages Table
-CREATE TABLE IF NOT EXISTS contact_messages (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    subject VARCHAR(500) NOT NULL,
-    message TEXT NOT NULL,
-    status VARCHAR(20) DEFAULT 'unread' CHECK (status IN ('unread', 'read', 'replied')),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
--- 2. Projects Table
+-- 1. Projects Table
 CREATE TABLE IF NOT EXISTS projects (
     id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -33,7 +21,7 @@ CREATE TABLE IF NOT EXISTS projects (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 3. Visitors Table (for analytics)
+-- 2. Visitors Table (for analytics)
 CREATE TABLE IF NOT EXISTS visitors (
     id BIGSERIAL PRIMARY KEY,
     ip_address INET,
@@ -43,7 +31,7 @@ CREATE TABLE IF NOT EXISTS visitors (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 4. Blog Posts Table (optional, for future use)
+-- 3. Blog Posts Table (optional, for future use)
 CREATE TABLE IF NOT EXISTS blog_posts (
     id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -59,8 +47,6 @@ CREATE TABLE IF NOT EXISTS blog_posts (
 );
 
 -- Create indexes for better performance
-CREATE INDEX IF NOT EXISTS idx_contact_messages_status ON contact_messages(status);
-CREATE INDEX IF NOT EXISTS idx_contact_messages_created_at ON contact_messages(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_projects_order_index ON projects(order_index);
 CREATE INDEX IF NOT EXISTS idx_projects_is_featured ON projects(is_featured);
 CREATE INDEX IF NOT EXISTS idx_visitors_page_visited ON visitors(page_visited);
@@ -78,11 +64,6 @@ END;
 $$ language 'plpgsql';
 
 -- Apply updated_at triggers
-CREATE TRIGGER update_contact_messages_updated_at
-    BEFORE UPDATE ON contact_messages
-    FOR EACH ROW
-    EXECUTE FUNCTION update_updated_at_column();
-
 CREATE TRIGGER update_projects_updated_at
     BEFORE UPDATE ON projects
     FOR EACH ROW
@@ -94,18 +75,6 @@ CREATE TRIGGER update_blog_posts_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 
 -- Row Level Security (RLS) Policies
-
--- Contact Messages: Allow insert for anyone, select/update only for authenticated users
-ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Anyone can insert contact messages" ON contact_messages
-    FOR INSERT WITH CHECK (true);
-
-CREATE POLICY "Authenticated users can view contact messages" ON contact_messages
-    FOR SELECT USING (auth.role() = 'authenticated');
-
-CREATE POLICY "Authenticated users can update contact messages" ON contact_messages
-    FOR UPDATE USING (auth.role() = 'authenticated');
 
 -- Projects: Read access for everyone, write access for authenticated users
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;

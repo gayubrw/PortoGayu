@@ -31,7 +31,7 @@ export async function getProjects(): Promise<ProjectType[]> {
       .order("order_index", { ascending: true });
 
     if (error) {
-      console.error("Supabase error, falling back to static data:", error);
+      console.warn("Supabase error, falling back to static data:", error);
       return staticProjects;
     }
 
@@ -55,7 +55,7 @@ export async function getProjects(): Promise<ProjectType[]> {
 
     return transformedProjects;
   } catch (error) {
-    console.error(
+    console.warn(
       "Error fetching projects, falling back to static data:",
       error
     );
@@ -90,7 +90,7 @@ export async function logVisitor(pageVisited: string, request?: Request) {
       },
     ]);
   } catch (error) {
-    console.error("Error logging visitor:", error);
+    console.warn("Error logging visitor:", error);
     // Don't throw error, just log it
   }
 }
@@ -127,7 +127,7 @@ export async function getContactData(): Promise<ContactDataType> {
       .single();
 
     if (error || !data) {
-      console.error("Contact data error, falling back to static:", error);
+      console.warn("Contact data error, falling back to static:", error);
       return staticContactData;
     }
 
@@ -144,7 +144,7 @@ export async function getContactData(): Promise<ContactDataType> {
       buttons: data.buttons,
     };
   } catch (error) {
-    console.error("Error fetching contact data:", error);
+    console.warn("Error fetching contact data:", error);
     return staticContactData;
   }
 }
@@ -169,7 +169,7 @@ export async function getAboutData(): Promise<AboutDataType> {
       .single();
 
     if (error || !data) {
-      console.error("About data error, falling back to static:", error);
+      console.warn("About data error, falling back to static:", error);
       return staticAboutData;
     }
 
@@ -202,7 +202,7 @@ export async function getAboutData(): Promise<AboutDataType> {
       skills: data.skills || [],
     };
   } catch (error) {
-    console.error("Error fetching about data:", error);
+    console.warn("Error fetching about data:", error);
     return staticAboutData;
   }
 }
@@ -227,7 +227,7 @@ export async function getHeroData(): Promise<HeroDataType> {
       .single();
 
     if (error || !data) {
-      console.error("Hero data error, falling back to default:", error);
+      console.warn("Hero data error, falling back to default:", error);
       return getDefaultHeroData();
     }
 
@@ -237,7 +237,7 @@ export async function getHeroData(): Promise<HeroDataType> {
       ctaButtons: data.cta_buttons,
     };
   } catch (error) {
-    console.error("Error fetching hero data:", error);
+    console.warn("Error fetching hero data:", error);
     return getDefaultHeroData();
   }
 }
