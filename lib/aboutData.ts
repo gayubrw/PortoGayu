@@ -99,11 +99,28 @@ export const personalInfo = {
   ],
 };
 
+// Professional Work Experience data (rendered above Organizational Experience)
+export const workExperience: ExperienceItem[] = [
+  {
+    company: "PT Garuda Maintenance Facility AeroAsia Tbk (GMF AeroAsia)",
+    position: "Internship – Web/App Development",
+    period: "July 2025 - October 2025",
+    type: "Internship",
+    description:
+      "Built internal business applications and workflow automation for operational teams using the Microsoft Power Platform.",
+    achievements: [
+      "Developed internal business applications using Microsoft Power Apps, with SharePoint Lists as the data backend",
+      "Automated operational workflows using Power Automate",
+      "Collaborated with cross-functional teams to translate business requirements into technical solutions",
+    ],
+  },
+];
+
 // Combined about data export
 export const aboutData = {
   personalInfo,
   education,
   experience: experiences,
-  workExperience: [], // Empty array for fallback, data will come from Supabase
+  workExperience,
   skills,
 };
