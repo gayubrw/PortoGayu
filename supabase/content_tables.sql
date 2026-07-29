@@ -174,7 +174,7 @@ INSERT INTO contact_data (
         },
         {
             "text": "View Projects",
-            "href": "/projects",
+            "href": "#projects",
             "isExternal": false
         }
     ]'::jsonb
@@ -276,12 +276,12 @@ INSERT INTO hero_data (
     '[
         {
             "text": "View My Work",
-            "href": "/projects",
+            "href": "#projects",
             "type": "primary"
         },
         {
             "text": "Get In Touch",
-            "href": "/contact", 
+            "href": "mailto:gayubaruwa27@gmail.com",
             "type": "secondary"
         }
     ]'::jsonb,

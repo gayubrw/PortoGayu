@@ -25,8 +25,16 @@ export const experiences: ExperienceItem[] = [
       "Coordinated weekly training schedules for the Informatics Futsal Club, Organized friendly Futsal matches for all Informatics Engineering students, Managed and oversaw the operational activities of the club to ensure consistent participation and performance.",
   },
   {
-    company: "Schematics REEVA",
-    position: "Expert Staff – Festival Division",
+    company: "Schematics ITS",
+    position: "Staff – Public Relations Division",
+    period: "February 2023 - November 2024",
+    type: "Organization",
+    description:
+      "Served as the social media administrator for Schematics' Instagram account, responsible for curating and publishing content that documented all organizational activities and initiatives.",
+  },
+  {
+    company: "Schematics ITS",
+    position: "Expert Staff – REEVA Division",
     period: "February 2024 - November 2024",
     type: "Organization",
     description:
@@ -35,14 +43,14 @@ export const experiences: ExperienceItem[] = [
   {
     company: "UKM Golf ITS",
     position: "Head of Finance Division",
-    period: "Feb 2024 - Feb 2025",
+    period: "Feb 2023 - Feb 2024",
     description:
       "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
   },
   {
     company: "UKM Golf ITS",
     position: "Head of Finance Division",
-    period: "Feb 2023 - Feb 2024",
+    period: "Feb 2024 - Feb 2025",
     description:
       "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
   },
@@ -53,7 +61,7 @@ export const education: EducationItem[] = [
   {
     institution: "Sepuluh Nopember Institute of Technology",
     degree: "Bachelor of Informatics Engineering",
-    period: "2022 - Present",
+    period: "2022 - 2026",
     description: "GPA: 3.39/4.00",
   },
   {

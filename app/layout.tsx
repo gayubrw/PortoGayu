@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
-import ConditionalFooter from "@/components/ui/ConditionalFooter";
+import Footer from "@/components/ui/Footer";
 
 // Define metadata
 export const metadata: Metadata = {
-  title: "PortoGayu | Welcome",
+  title: "Portfolio | Gayu Baruwa",
   description:
     "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
   icons: {
@@ -38,19 +38,9 @@ export default function RootLayout({
         {/* Subtle Pattern */}
         <div className="fixed inset-0 bg-[url('/subtle-pattern.png')] bg-repeat opacity-[0.01] pointer-events-none z-50 animate-float"></div>
 
-        {/* Dark Vignette Effect */}
-        <div
-          className="fixed inset-0 pointer-events-none z-40"
-          style={{
-            boxShadow: "inset 0 0 250px rgba(0, 0, 0, 0.8)",
-            background:
-              "radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.6) 100%)",
-          }}
-        ></div>
-
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
-        <ConditionalFooter />
+        <Footer />
       </body>
     </html>
   );

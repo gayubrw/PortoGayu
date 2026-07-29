@@ -24,10 +24,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-black/90 backdrop-blur-sm py-3 shadow-md shadow-theme-red/30"
-          : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,10 +42,8 @@ export default function Navbar() {
           {/* Desktop Navigation - centered and with proper spacing */}
           <nav className="hidden md:flex items-center space-x-8">
             {[
-              { name: "Home", href: "/home" },
-              { name: "Projects", href: "/projects" },
-              { name: "About", href: "/about" },
-              { name: "Contact", href: "/contact" },
+              { name: "Projects", href: "/#projects" },
+              { name: "About", href: "/#about" },
             ].map((item) => (
               <Link
                 key={item.name}
@@ -111,10 +107,8 @@ export default function Navbar() {
       >
         <div className="px-4 py-3 space-y-3">
           {[
-            { name: "Home", href: "/home" },
-            { name: "Projects", href: "/projects" },
-            { name: "About", href: "/about" },
-            { name: "Contact", href: "/contact" },
+            { name: "Projects", href: "/#projects" },
+            { name: "About", href: "/#about" },
           ].map((item) => (
             <Link
               key={item.name}

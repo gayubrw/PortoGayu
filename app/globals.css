@@ -163,6 +163,13 @@ body {
   color: var(--foreground);
 }
 
+/* Hide the fixed navbar while a detail drawer/sidebar is open, so it doesn't
+   overlap the drawer's close button. The navbar already transitions opacity. */
+body.drawer-open header {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @font-face {
   font-family: "GeistMono";
   src: url("/fonts/GeistMono-Regular.woff2") format("woff2");

@@ -1,19 +1,13 @@
-import type { Metadata } from "next";
 import { getAboutData } from "@/lib/utils";
 import Image from "next/image"; // Import Image component
+import Reveal from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
-  title: "PortoGayu | About Me",
-  description:
-    "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
-};
-
-export default async function AboutPage() {
+export default async function AboutSection() {
   const aboutData = await getAboutData();
   const { personalInfo, education, experience, workExperience } = aboutData;
 
   return (
-    <div className="py-24 theme-bg-black min-h-screen">
+    <div id="about" className="relative py-24 theme-bg-black scroll-mt-24">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 z-0">
         <div
@@ -29,7 +23,7 @@ export default async function AboutPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="lg:text-center mb-16">
+        <Reveal className="lg:text-center mb-16">
           {/* Section heading with decorative line */}
           <div className="inline-flex items-center mb-4">
             <div className="h-px w-8 theme-bg-red"></div>
@@ -45,10 +39,10 @@ export default async function AboutPage() {
           <p className="mt-4 max-w-2xl text-xl theme-text-cream lg:mx-auto">
             Let&apos;s get to know me.
           </p>
-        </div>
+        </Reveal>
 
         {/* Profile Section */}
-        <div className="mb-24 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <Reveal className="mb-24 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Replaced Abstract geometric element with actual profile image */}
           <div className="portfolio-card p-2 aspect-square relative overflow-hidden flex items-center justify-center">
             <Image
@@ -82,14 +76,14 @@ export default async function AboutPage() {
               <p className="theme-text-cream">{personalInfo.bio}</p>
             )}
           </div>
-        </div>
+        </Reveal>
 
         {/* Professional divider */}
         <div className="professional-divider my-16"></div>
 
         {/* Work Experience Section */}
         {workExperience && workExperience.length > 0 && (
-          <div className="mb-24">
+          <Reveal className="mb-24">
             {/* Section header */}
             <h2 className="text-2xl font-bold theme-text-red mb-12 lg:text-center">
               <span className="relative">
@@ -144,11 +138,11 @@ export default async function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         )}
 
         {/* Organizational Experience Section */}
-        <div className="mb-24">
+        <Reveal className="mb-24">
           {/* Section header */}
           <h2 className="text-2xl font-bold theme-text-cream mb-12 lg:text-center">
             <span className="relative">
@@ -185,10 +179,10 @@ export default async function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Education Section */}
-        <div className="mb-24">
+        <Reveal className="mb-24">
           <h2 className="text-2xl font-bold theme-text-red mb-12 lg:text-center">
             <span className="relative">
               Education
@@ -212,10 +206,10 @@ export default async function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Skills Section - With Logo */}
-        <div>
+        <Reveal>
           <h2 className="text-2xl font-bold theme-text-cream mb-12 lg:text-center">
             <span className="relative">
               Technical Skills
@@ -640,20 +634,7 @@ export default async function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Contact button */}
-        <div className="mt-24 text-center">
-          <a
-            href="/contact"
-            className="theme-bg-red theme-text-cream border border-theme-red hover:bg-transparent hover:theme-text-red px-6 py-3 transition-all duration-300 text-sm tracking-wider uppercase font-bold group inline-flex items-center"
-          >
-            <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              &#x2192;
-            </span>
-            CONTACT ME
-          </a>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

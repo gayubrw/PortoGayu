@@ -248,8 +248,12 @@ function getDefaultHeroData(): HeroDataType {
     description:
       "Informatics Engineering student building end-to-end ML/NLP pipelines and deep learning models, alongside full-stack web applications.",
     ctaButtons: [
-      { text: "View My Work", href: "/projects", type: "primary" },
-      { text: "Get In Touch", href: "/contact", type: "secondary" },
+      { text: "View My Work", href: "#projects", type: "primary" },
+      {
+        text: "About Me",
+        href: "#about",
+        type: "secondary",
+      },
     ],
   };
 }
