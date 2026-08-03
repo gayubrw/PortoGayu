@@ -1,11 +1,5 @@
-import {
-  ProjectType,
-  ContactDataType,
-  AboutDataType,
-  HeroDataType,
-} from "@/lib/types";
+import { ProjectType, AboutDataType, HeroDataType } from "@/lib/types";
 import { projects as staticProjects } from "@/lib/projectData";
-import { contactData as staticContactData } from "@/lib/contactData";
 import { aboutData as staticAboutData } from "@/lib/aboutData";
 import { supabase } from "@/lib/supabase";
 
@@ -108,48 +102,6 @@ export function isSupabaseConfigured(): boolean {
 }
 
 /**
- * Fetch contact data with fallback to static data
- */
-export async function getContactData(): Promise<ContactDataType> {
-  try {
-    if (
-      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-      !supabase
-    ) {
-      return staticContactData;
-    }
-
-    const { data, error } = await supabase
-      .from("contact_data")
-      .select("*")
-      .eq("is_active", true)
-      .single();
-
-    if (error || !data) {
-      console.warn("Contact data error, falling back to static:", error);
-      return staticContactData;
-    }
-
-    return {
-      header: {
-        title: data.header_title,
-        subtitle: data.header_subtitle,
-      },
-      contactInfo: {
-        email: data.email,
-        location: data.location,
-        socialLinks: data.social_links,
-      },
-      buttons: data.buttons,
-    };
-  } catch (error) {
-    console.warn("Error fetching contact data:", error);
-    return staticContactData;
-  }
-}
-
-/**
  * Fetch about data with fallback to static data
  */
 export async function getAboutData(): Promise<AboutDataType> {
@@ -244,9 +196,9 @@ export async function getHeroData(): Promise<HeroDataType> {
 
 function getDefaultHeroData(): HeroDataType {
   return {
-    tagline: "Machine Learning & NLP Enthusiast | Full-Stack Web Developer",
+    tagline: "Data Scientist — Machine Learning & NLP",
     description:
-      "Informatics Engineering student building end-to-end ML/NLP pipelines and deep learning models, alongside full-stack web applications.",
+      "Informatics student focused on Machine Learning, NLP, and Data Science — building end-to-end pipelines and turning data into insight, complemented by full-stack web development.",
     ctaButtons: [
       { text: "View My Work", href: "#projects", type: "primary" },
       {

@@ -1,6 +1,7 @@
 import { getAboutData } from "@/lib/utils";
 import Image from "next/image"; // Import Image component
 import Reveal from "@/components/ui/Reveal";
+import SectionParallax from "@/components/ui/SectionParallax";
 
 export default async function AboutSection() {
   const aboutData = await getAboutData();
@@ -22,7 +23,7 @@ export default async function AboutSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <SectionParallax className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Reveal className="lg:text-center mb-16">
           {/* Section heading with decorative line */}
           <div className="inline-flex items-center mb-4">
@@ -406,6 +407,22 @@ export default async function AboutSection() {
                     FastAPI
                   </span>
                 </div>
+
+                {/* Data Visualization */}
+                <div className="theme-bg-black border border-theme-red hover:border-theme-red hover:bg-theme-red/5 rounded-none p-4 flex flex-col items-center justify-center text-center transition-all hover-lift h-24">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-12 h-12 mb-2 text-amber-400 fill-current"
+                  >
+                    <rect x="3" y="12" width="4" height="8" rx="1" />
+                    <rect x="10" y="7" width="4" height="13" rx="1" />
+                    <rect x="17" y="3" width="4" height="17" rx="1" />
+                  </svg>
+                  <span className="font-medium theme-text-cream hover:theme-text-red transition-colors text-xs">
+                    Data Visualization
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -635,7 +652,7 @@ export default async function AboutSection() {
             </div>
           </div>
         </Reveal>
-      </div>
+      </SectionParallax>
     </div>
   );
 }

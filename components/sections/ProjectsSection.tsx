@@ -1,6 +1,7 @@
 import { getProjects } from "@/lib/utils";
 import ProjectsGrid from "@/components/sections/ProjectsGrid";
 import Reveal from "@/components/ui/Reveal";
+import SectionParallax from "@/components/ui/SectionParallax";
 
 export default async function ProjectsSection() {
   const projects = await getProjects();
@@ -20,7 +21,7 @@ export default async function ProjectsSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <SectionParallax className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Reveal className="lg:text-center mb-16">
           {/* Section heading with decorative line */}
           <div className="inline-flex items-center mb-4">
@@ -41,7 +42,7 @@ export default async function ProjectsSection() {
 
         {/* Card grid + detail sidebar (client) */}
         <ProjectsGrid projects={projects} />
-      </div>
+      </SectionParallax>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import ProjectPlaceholder from "@/components/shared/ProjectPlaceholder";
 import Reveal from "@/components/ui/Reveal";
@@ -14,6 +15,9 @@ export default function ProjectsGrid({
   // The project shown in the sidebar. Kept during the close animation.
   const [active, setActive] = useState<ProjectType | null>(null);
   const [open, setOpen] = useState(false);
+  // Portal target only exists after mount (avoids SSR document access).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const openPanel = (project: ProjectType) => {
     setActive(project);
@@ -86,7 +90,7 @@ export default function ProjectsGrid({
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
                     className="bg-theme-red/10 theme-text-red px-2 py-1 text-xs font-medium border border-theme-red/30 rounded"
@@ -122,17 +126,22 @@ export default function ProjectsGrid({
         ))}
       </div>
 
-      {/* Backdrop */}
-      <div
-        onClick={closePanel}
-        aria-hidden="true"
-        className={`fixed inset-0 z-[90] bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
-          open ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      />
+      {/* Drawer is portaled to <body> so it stays viewport-fixed even when an
+          ancestor section is transformed by the scroll parallax. */}
+      {mounted &&
+        createPortal(
+          <>
+            {/* Backdrop */}
+            <div
+              onClick={closePanel}
+              aria-hidden="true"
+              className={`fixed inset-0 z-[90] bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
+                open ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
 
-      {/* Sidebar detail panel */}
-      <aside
+            {/* Sidebar detail panel */}
+            <aside
         role="dialog"
         aria-modal="true"
         aria-label={active ? `${active.title} details` : "Project details"}
@@ -267,6 +276,9 @@ export default function ProjectsGrid({
           </div>
         )}
       </aside>
+          </>,
+          document.body,
+        )}
     </>
   );
 }

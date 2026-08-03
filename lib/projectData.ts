@@ -12,19 +12,41 @@ export interface ProjectType {
 
 export const projects: ProjectType[] = [
   {
+    id: 7,
+    title: "Fine-Grained Admission Question Clustering",
+    description:
+      "Bachelor thesis (NLP/Data Science): a 16-scenario comparative study of embedding methods and clustering algorithms to group fine-grained Indonesian university-admission questions, powering an answer-retrieval system.",
+    longDescription:
+      "Final-year thesis at Informatics ITS tackling fine-grained text clustering — questions that are lexically near-identical but differ in intent (the Meaning Conflation Deficiency problem). Ran a 16-scenario comparative study crossing 4 embedding methods (TF-IDF, Word2Vec/FastText, IndoBERT pre-trained, and IndoBERT fine-tuned via Metric Learning with Triplet Loss) against 4 clustering algorithms (K-Means, Agglomerative Hierarchical, DBSCAN, Spectral). Engineered a leak-free dataset from 573 real ITS admission questions (144 answer-based ground-truth clusters), applying stratified split before LLM paraphrase augmentation (Llama 3.3-70B via Groq API) to reach 1,924 training samples. The best combination (IndoBERT fine-tuned + K-Means) reached Silhouette 0.263, ARI 0.80, and NMI 0.89, and the resulting embedding space drove an answer-retrieval framework with up to 97.8% accuracy (kNN) on unseen questions. A key finding: an un-adapted pre-trained IndoBERT actually underperformed TF-IDF — domain fine-tuning, not model size, was the decisive factor.",
+    tags: [
+      "Python",
+      "NLP",
+      "IndoBERT",
+      "PyTorch",
+      "Scikit-learn",
+      "Clustering",
+      "Metric Learning",
+    ],
+    imageUrl: "",
+    demoUrl: "",
+    githubUrl: "",
+    features: [
+      "16 scenarios: 4 embeddings (TF-IDF, FastText, IndoBERT pre-trained & fine-tuned) x 4 clustering algorithms (K-Means, AHC, DBSCAN, Spectral)",
+      "Best combination (IndoBERT fine-tuned + K-Means): Silhouette 0.263, ARI 0.80, NMI 0.89 against 144 answer-based clusters",
+      "Answer-retrieval accuracy up to 97.8% (kNN) / 93.5% (Nearest Centroid) on unseen test questions",
+      "Domain fine-tuning via Metric Learning + Triplet Loss lifted Nearest Centroid accuracy 67.4% to 93.5% (+26.1 pts)",
+      "Leak-free dataset engineering: 573 real admission questions + LLM paraphrase augmentation (Llama 3.3-70B) to 1,924 training samples",
+      "Evaluated with internal (Silhouette, DBI, CHI) and external (ARI, NMI) metrics; qualitative analysis via UMAP, t-SNE, and Word Cloud",
+    ],
+  },
+  {
     id: 5,
     title: "Face Recognition with ArcFace and ResNet50",
     description:
       "Group project implementing ArcFace loss from scratch in PyTorch with a pretrained ResNet50 backbone for face recognition on the CASIA dataset.",
     longDescription:
       "Implemented ArcFace loss (Deng et al., IEEE T-PAMI 2021) from scratch in PyTorch, using a pretrained ResNet50 backbone with a 512-dim BN-Dropout-FC-BN embedding head, following the paper's exact hyperparameters (s=64, m=0.5, SGD with MultiStep LR). Trained on the CASIA face dataset (200 identity classes, ~20K images, 80/20 split) on Google Colab with a Tesla T4 GPU over 32 epochs. This is a research/training notebook rather than a deployed application.",
-    tags: [
-      "PyTorch",
-      "ResNet50",
-      "ArcFace",
-      "Computer Vision",
-      "Google Colab",
-    ],
+    tags: ["PyTorch", "ResNet50", "ArcFace", "Computer Vision", "Google Colab"],
     imageUrl: "",
     demoUrl: "",
     githubUrl: "",
@@ -44,7 +66,13 @@ export const projects: ProjectType[] = [
       "Capstone project: a rule-based NLP/ML engine detecting skincare ingredient incompatibilities, served via a FastAPI backend to a Flutter mobile app.",
     longDescription:
       "Built a rule-based NLP/ML engine to detect skincare ingredient incompatibilities, covering 6 major active-ingredient groups (retinoids, vitamin C, AHA, BHA, niacinamide, benzoyl peroxide) across 7 pairwise interaction rules with graded AVOID/CAUTION severity levels. Cleaned, deduplicated, and merged skincare datasets from 3 sources (Kaggle Cosmetics, Sephora Ingredients, product catalogs) into a unified corpus of 4,082 products spanning 116 brands and 6,696 unique INCI ingredients, normalized into 13 functional categories. Also developed a content-based recommendation engine using cosine similarity over ingredient-function profiles (4,082 x 4,082 similarity matrix).",
-    tags: ["Python", "NLP", "Scikit-learn", "FastAPI", "Flutter (collaboration)"],
+    tags: [
+      "Python",
+      "NLP",
+      "Scikit-learn",
+      "FastAPI",
+      "Flutter (collaboration)",
+    ],
     imageUrl: "",
     demoUrl: "",
     githubUrl: "",
@@ -139,11 +167,11 @@ export const projects: ProjectType[] = [
   },
   {
     id: 4,
-    title: "PortoGayu",
+    title: "Website Portfolio",
     description:
       "Modern portfolio website with full-stack backend integration using Next.js and Supabase.",
     longDescription:
-      "PortoGayu is a modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project features a complete backend integration with Supabase for contact form submissions, project management, and visitor analytics. The website showcases professional design patterns, server-side rendering, and modern web development best practices. It includes functional contact forms, admin dashboard, and a scalable architecture ready for future enhancements.",
+      "Website Portfolio is a modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project features a complete backend integration with Supabase for contact form submissions, project management, and visitor analytics. The website showcases professional design patterns, server-side rendering, and modern web development best practices. It includes functional contact forms, admin dashboard, and a scalable architecture ready for future enhancements.",
     tags: [
       "Next.js",
       "TypeScript",
@@ -152,7 +180,7 @@ export const projects: ProjectType[] = [
       "React",
       "PostgreSQL",
     ],
-    imageUrl: "/images/project4.png",
+    imageUrl: "",
     demoUrl: "",
     githubUrl: "https://github.com/gayubrw/PortoGayu.git",
     features: [

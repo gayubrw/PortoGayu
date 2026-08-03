@@ -6,7 +6,7 @@ import AboutSection from "@/components/sections/AboutSection";
 export const metadata: Metadata = {
   title: "Portfolio | Gayu Baruwa",
   description:
-    "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
+    "Portfolio showcasing Machine Learning, NLP, Data Science, and full-stack web development projects by Gayu Baruwa.",
 };
 
 export default function HomePage() {

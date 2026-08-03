@@ -21,27 +21,6 @@ export interface NavItem {
 }
 
 // Database-driven content types
-export interface ContactDataType {
-  header: {
-    title: string;
-    subtitle: string;
-  };
-  contactInfo: {
-    email: string;
-    location: string;
-    socialLinks: Array<{
-      name: string;
-      href: string;
-      icon: string;
-    }>;
-  };
-  buttons: Array<{
-    text: string;
-    href: string;
-    isExternal?: boolean;
-  }>;
-}
-
 export interface AboutDataType {
   personalInfo: {
     name: string;

@@ -10,9 +10,8 @@ export default function Footer() {
               <span className="theme-text-cream">Baruwa</span>
             </div>
             <p className="text-sm theme-text-cream">
-              A showcase of web development and design projects created with
-              precision and creativity. Exploring the intersection of
-              functionality and aesthetics.
+              A showcase of Machine Learning, NLP, and full-stack web
+              development projects, built with precision and creativity.
             </p>
           </div>
         </div>
@@ -21,7 +20,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-theme-red flex flex-col sm:flex-row justify-between items-center">
           <p className="text-xs theme-text-cream">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="theme-text-red">PortoGayu</span>. ALL RIGHTS
+            <span className="theme-text-red">Web Portfolio</span>. ALL RIGHTS
             RESERVED.
           </p>
           <div className="text-xs mt-4 sm:mt-0 theme-text-red">

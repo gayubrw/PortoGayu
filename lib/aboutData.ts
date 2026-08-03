@@ -27,7 +27,7 @@ export const experiences: ExperienceItem[] = [
   {
     company: "Schematics ITS",
     position: "Staff – Public Relations Division",
-    period: "February 2023 - November 2024",
+    period: "February 2023 - February 2024",
     type: "Organization",
     description:
       "Served as the social media administrator for Schematics' Instagram account, responsible for curating and publishing content that documented all organizational activities and initiatives.",
@@ -43,14 +43,14 @@ export const experiences: ExperienceItem[] = [
   {
     company: "UKM Golf ITS",
     position: "Head of Finance Division",
-    period: "Feb 2023 - Feb 2024",
+    period: "February 2023 - February 2024",
     description:
       "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
   },
   {
     company: "UKM Golf ITS",
     position: "Head of Finance Division",
-    period: "Feb 2024 - Feb 2025",
+    period: "February 2024 - February 2025",
     description:
       "Oversaw vendor acquisition for merchandise production to support club branding. Managed merchandise distribution and served as the main liaison for internal logistics and communication.",
   },
@@ -59,10 +59,10 @@ export const experiences: ExperienceItem[] = [
 // Education data
 export const education: EducationItem[] = [
   {
-    institution: "Sepuluh Nopember Institute of Technology",
+    institution: "Institut Teknologi Sepuluh Nopember (ITS)",
     degree: "Bachelor of Informatics Engineering",
     period: "2022 - 2026",
-    description: "GPA: 3.39/4.00",
+    description: "GPA: 3.41/4.00",
   },
   {
     institution: "Dicoding Bootcamp",

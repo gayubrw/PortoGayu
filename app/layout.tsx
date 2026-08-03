@@ -7,7 +7,7 @@ import Footer from "@/components/ui/Footer";
 export const metadata: Metadata = {
   title: "Portfolio | Gayu Baruwa",
   description:
-    "Portfolio showcasing Machine Learning, NLP, and full-stack web development projects by Gayu Baruwa.",
+    "Portfolio showcasing Machine Learning, NLP, Data Science, and full-stack web development projects by Gayu Baruwa.",
   icons: {
     icon: "/images/icon2.jpg",
     shortcut: "/images/icon2.jpg",

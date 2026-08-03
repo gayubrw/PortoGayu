@@ -46,34 +46,42 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
       id="home"
       className="relative min-h-screen flex items-center pt-16 overflow-hidden"
     >
-      {/* Background Image (parallax zoom) */}
+      {/* Background: black with a soft static red glow for depth (parallax) */}
       <div
         ref={bgRef}
-        className="absolute inset-0 z-0 will-change-transform"
-        style={{
-          backgroundImage: "url('/images/bghero1.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="absolute inset-0 z-0 will-change-transform bg-black"
       >
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 55% at 50% 42%, rgba(161,19,18,0.14) 0%, transparent 70%)",
+          }}
+        ></div>
       </div>
 
-      {/* Background subtle pattern overlay */}
+      {/* Background subtle dot-grid pattern overlay */}
       <div className="absolute inset-0 z-[5]">
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
               linear-gradient(to right, #A11312 1px, transparent 1px),
               linear-gradient(to bottom, #A11312 1px, transparent 1px)
             `,
-            backgroundSize: "40px 40px",
+            backgroundSize: "44px 44px",
           }}
         />
       </div>
+
+      {/* Vignette: gently darkens the edges so the center content pops */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[6]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)",
+        }}
+      ></div>
 
       {/* Content (drift + fade on scroll) */}
       <div
@@ -82,16 +90,42 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
       >
         <div className="flex flex-col items-center justify-center text-center pt-8 pb-28">
           {/* Main title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold theme-text-red tracking-tight">
+          <h1
+            className="hero-reveal text-4xl md:text-6xl lg:text-7xl font-extrabold theme-text-red tracking-tight"
+            style={{ animationDelay: "0.1s" }}
+          >
             {heroData.tagline}
           </h1>
 
           {/* Description */}
-          <p className="mt-6 text-base md:text-lg theme-text-cream leading-relaxed max-w-2xl opacity-90">
+          <p
+            className="hero-reveal mt-6 text-base md:text-lg theme-text-cream leading-relaxed max-w-2xl opacity-90"
+            style={{ animationDelay: "0.28s" }}
+          >
             {heroData.description}
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Focus tags */}
+          <div
+            className="hero-reveal mt-7 flex flex-wrap items-center justify-center gap-2.5"
+            style={{ animationDelay: "0.37s" }}
+          >
+            {["Machine Learning", "NLP", "Data Science", "Full-Stack"].map(
+              (tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-[11px] tracking-widest uppercase theme-text-cream border border-theme-red/30 hover:border-theme-red/70 transition-colors"
+                >
+                  {tag}
+                </span>
+              ),
+            )}
+          </div>
+
+          <div
+            className="hero-reveal mt-9 flex flex-col sm:flex-row gap-4 justify-center"
+            style={{ animationDelay: "0.5s" }}
+          >
             {heroData.ctaButtons.map((button, index) => {
               const cls =
                 button.type === "primary"
@@ -113,10 +147,16 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
           </div>
 
           {/* Divider */}
-          <div className="mt-8 mb-6 h-px w-14 bg-theme-red/40"></div>
+          <div
+            className="hero-reveal mt-8 mb-6 h-px w-14 bg-theme-red/40"
+            style={{ animationDelay: "0.62s" }}
+          ></div>
 
           {/* Social media icons */}
-          <div className="flex items-center justify-center gap-7">
+          <div
+            className="hero-reveal flex items-center justify-center gap-7"
+            style={{ animationDelay: "0.74s" }}
+          >
             <a
               href="https://github.com/gayubrw"
               target="_blank"
@@ -139,7 +179,7 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
               aria-label="LinkedIn Profile"
             >
               <svg
-                className="w-6 h-6 hover:text-theme-red transition-colors theme-text-red"
+                className="w-6 h-6 hover:text-theme-red transition-colors theme-text-cream"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -179,7 +219,10 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
           </div>
 
           {/* Email • Location */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm theme-text-cream">
+          <div
+            className="hero-reveal mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm theme-text-cream"
+            style={{ animationDelay: "0.86s" }}
+          >
             <a className="tracking-wide hover:theme-text-red transition-colors">
               gayubaruwa27@gmail.com
             </a>
@@ -192,7 +235,8 @@ export default function HeroScene({ heroData }: { heroData: HeroDataType }) {
             href="/CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group/cv mt-6 inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase theme-text-red hover:theme-text-cream transition-colors"
+            style={{ animationDelay: "0.98s" }}
+            className="hero-reveal group/cv mt-6 inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase theme-text-red hover:theme-text-cream transition-colors"
           >
             <span className="border-b border-theme-red/40 group-hover/cv:border-theme-cream pb-1 transition-colors">
               Download CV
